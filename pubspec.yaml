@@ -35,7 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  cloud_firestore: ^4.5.1
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -61,8 +61,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - src/images/logodark.png
-  - src/images/logolight.png
+  - assets/images/
+  - assets/icons/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -79,23 +79,23 @@ flutter:
   fonts:
     - family: Inter
       fonts:
-        - asset: src/fonts/Inter-Thin.ttf
+        - asset: assets/fonts/Inter-Thin.ttf
           weight: 100
-        - asset: src/fonts/Inter-ExtraLight.ttf
+        - asset: assets/fonts/Inter-ExtraLight.ttf
           weight: 200
-        - asset: src/fonts/Inter-Light.ttf
+        - asset: assets/fonts/Inter-Light.ttf
           weight: 300
-        - asset: src/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Regular.ttf
           weight: 400
-        - asset: src/fonts/Inter-Medium.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
           weight: 500
-        - asset: src/fonts/Inter-SemiBold.ttf
+        - asset: assets/fonts/Inter-SemiBold.ttf
           weight: 600
-        - asset: src/fonts/Inter-Bold.ttf
+        - asset: assets/fonts/Inter-Bold.ttf
           weight: 700
-        - asset: src/fonts/Inter-ExtraBold.ttf
+        - asset: assets/fonts/Inter-ExtraBold.ttf
           weight: 800
-        - asset: src/fonts/Inter-Black.ttf
+        - asset: assets/fonts/Inter-Black.ttf
           weight: 900
   #   - family: Trajan Pro
   #     fonts:

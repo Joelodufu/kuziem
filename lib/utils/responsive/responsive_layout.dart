@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:kuziem/utils/dimensions.dart';
+
+import '../../constants.dart';
 
 class ResponsiveLayout extends StatelessWidget {
   const ResponsiveLayout(
@@ -18,9 +16,9 @@ class ResponsiveLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < mobilewidth) {
+      if (constraints.maxWidth < kMobilewidth) {
         return mobilebody;
-      } else if (constraints.maxWidth < tabwidth) {
+      } else if (constraints.maxWidth < kTabwidth) {
         return padbody;
       } else
         return descktopbody;

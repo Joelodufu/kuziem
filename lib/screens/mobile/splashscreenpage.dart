@@ -1,9 +1,29 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:kuziem/screens/mobile/login/login.dart';
 
-import 'mobile/splashscreen.dart';
+import '../../utils/responsive/mobile/splashscreen.dart';
 
-class PadBody extends StatelessWidget {
-  const PadBody({super.key});
+class SplashScreenPage extends StatefulWidget {
+  const SplashScreenPage({
+    super.key,
+  });
+
+  @override
+  State<SplashScreenPage> createState() => _SplashScreenPageState();
+}
+
+class _SplashScreenPageState extends State<SplashScreenPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(
+        Duration(seconds: 5),
+        () => Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (BuildContext context) => Login())));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +38,7 @@ class PadBody extends StatelessWidget {
             children: [
               Image(
                 width: 203,
-                image: AssetImage('src/images/logolight.png'),
+                image: AssetImage('assets/images/logolight.png'),
               ),
               SizedBox(
                 height: 31,

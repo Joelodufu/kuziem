@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:kuziem/constants.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,12 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
       body: ClipPath(
         clipper: CustomClipPath(),
         child: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 17, 117, 208),
-            Color.fromARGB(255, 0, 54, 103),
-          ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
-        ),
+            decoration: BoxDecoration(
+          gradient: kPrimaryGradient,
+        )),
       ),
     );
   }
