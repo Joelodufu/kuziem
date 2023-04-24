@@ -5,12 +5,14 @@ import '../components/already_have_an_account_check.dart';
 import '../components/background.dart';
 import '../components/rounded_button.dart';
 import '../components/rounded_inpu_field.dart';
-import '../components/rounded_password_field.dart';
+import '../../../components/rounded_password_field.dart';
 import '../login/login.dart';
 import 'components/or_divider.dart';
 import 'components/social_icons.dart';
 
 class SignUpPage extends StatelessWidget {
+  static String routeName = "/sign_up";
+
   const SignUpPage({super.key});
 
   @override
@@ -57,7 +59,7 @@ class SignUpPage extends StatelessWidget {
                 login: false,
                 press: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const Login();
+                    return Login();
                   }));
                 },
               ),

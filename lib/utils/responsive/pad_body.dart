@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'mobile/splashscreen.dart';
+import '../../screens/mobile/splash/components/splashscreen.dart';
 
 class PadBody extends StatelessWidget {
   const PadBody({super.key});

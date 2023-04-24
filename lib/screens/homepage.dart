@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:kuziem/utils/responsive/descktop_body.dart';
 import 'package:kuziem/utils/responsive/mobile_body.dart';
 import 'package:kuziem/utils/responsive/pad_body.dart';
@@ -16,8 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final currentWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
+    return const Scaffold(
       body: ResponsiveLayout(
           mobilebody: MobileBody(),
           descktopbody: DescktopBody(),

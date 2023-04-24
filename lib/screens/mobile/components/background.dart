@@ -33,7 +33,7 @@ class Background extends StatelessWidget {
               width: 200,
             ),
           ),
-          child
+          Positioned(top: 180, child: child)
         ],
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constants.dart';
+import '../../../../constants.dart';
 
 class OrDevider extends StatelessWidget {
   const OrDevider({super.key});

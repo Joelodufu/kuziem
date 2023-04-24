@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kuziem/screens/mobile/components/text_field_container.dart';
-import 'package:kuziem/utils/constants.dart';
+import 'package:kuziem/constants.dart';
 
 class RoundedInputField extends StatelessWidget {
   final TextInputType inputsTyp;
@@ -19,7 +19,7 @@ class RoundedInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
-        child: TextField(
+        child: TextFormField(
       keyboardType: inputsTyp,
       onChanged: onchanged,
       decoration: InputDecoration(
