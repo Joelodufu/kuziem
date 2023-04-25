@@ -5,6 +5,7 @@ import 'package:kuziem/screens/mobile/components/already_have_an_account_check.d
 import 'package:kuziem/screens/mobile/components/rounded_button.dart';
 import 'package:kuziem/screens/mobile/components/rounded_inpu_field.dart';
 import 'package:kuziem/screens/mobile/login/login.dart';
+import 'package:kuziem/screens/mobile/login_success/login_success_screen.dart';
 import 'package:kuziem/size_config.dart';
 
 import '../../../../constants.dart';
@@ -62,13 +63,22 @@ class _BodyState extends State<Body> {
                       setState(() {
                         errors.add(kEmailNullError);
                       });
+                      return "";
+                    } else if (value!.isEmpty &&
+                        errors.contains(kEmailNullError)) {
+                      return "";
                     } else if (!emailValidatorRegEx.hasMatch(value) &&
                         !errors.contains(kInvalidEmailError)) {
                       setState(() {
                         errors.add(kInvalidEmailError);
                       });
+                      return "";
+                    } else if (!emailValidatorRegEx.hasMatch(value) &&
+                        errors.contains(kInvalidEmailError)) {
+                      return "";
+                    } else {
+                      return null;
                     }
-                    return null;
                   },
                   keyboardType: TextInputType.emailAddress,
                   onChanged: (value) {
@@ -109,6 +119,7 @@ class _BodyState extends State<Body> {
                           return Login();
                         }));
                       }
+                      return null;
                     })
               ],
             ),

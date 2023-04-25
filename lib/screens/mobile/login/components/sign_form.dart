@@ -21,6 +21,7 @@ class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
   String email = "";
   String password = "";
+  bool visibility = true;
   bool remember = false;
   final List<String> errors = [];
   @override
@@ -33,11 +34,13 @@ class _SignFormState extends State<SignForm> {
             SizedBox(
               height: getProportionalScreenWidth(10),
             ),
+            SizedBox(
+              height: getProportionalScreenWidth(10),
+            ),
             buildPasswordForm(),
             SizedBox(
-              height: getProportionalScreenWidth(20),
+              height: getProportionalScreenWidth(10),
             ),
-            FormError(errors: errors),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -86,44 +89,55 @@ class _SignFormState extends State<SignForm> {
 
   TextFieldContainer buildPasswordForm() {
     return TextFieldContainer(
-      child: TextFormField(
-        validator: (value) {
-          if (value!.isEmpty && !errors.contains(kPassNullError)) {
-            setState(() {
-              errors.add(kPassNullError);
-            });
-            return "";
-          } else if (value.length < 8 && !errors.contains(kShortPassError)) {
-            setState(() {
-              errors.add(kShortPassError);
-            });
-            return "";
-          }
+        child: TextFormField(
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kPassNullError)) {
+          setState(() {
+            errors.add(kPassNullError);
+          });
+          return kPassNullError;
+        } else if (value!.isEmpty && errors.contains(kPassNullError)) {
+          return kPassNullError;
+        } else if (value.length < 8 && !errors.contains(kShortPassError)) {
+          setState(() {
+            errors.add(kShortPassError);
+          });
+          return kShortPassError;
+        } else if (value.length < 8 && errors.contains(kShortPassError)) {
+          return kShortPassError;
+        } else {
           return null;
-        },
-        onChanged: (value) {
-          if (value.isNotEmpty && errors.contains(kPassNullError)) {
-            setState(() {
-              errors.remove(kPassNullError);
-            });
-          } else if (value.length >= 8 && errors.contains(kShortPassError)) {
-            setState(() {
-              errors.remove(kShortPassError);
-            });
-          }
-          return null;
-        },
-        obscureText: true,
-        decoration: const InputDecoration(
-            border: InputBorder.none,
-            hintText: "Password",
-            icon: Icon(
-              Icons.lock,
-            ),
-            suffixIcon: Icon(Icons.visibility_off)),
-        textAlign: TextAlign.center,
+        }
+      },
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kPassNullError)) {
+          setState(() {
+            errors.remove(kPassNullError);
+          });
+        } else if (value.length >= 8 && errors.contains(kShortPassError)) {
+          setState(() {
+            errors.remove(kShortPassError);
+          });
+        }
+        return null;
+      },
+      obscureText: visibility,
+      decoration: InputDecoration(
+        hintText: "Enter your password",
+        labelText: "Password",
+        suffixIcon: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: IconButton(
+            icon: Icon(visibility ? Icons.visibility : Icons.visibility_off),
+            onPressed: () {
+              setState(() {
+                visibility = !visibility;
+              });
+            },
+          ),
+        ),
       ),
-    );
+    ));
   }
 
   TextFieldContainer buildEmailFormField() {
@@ -134,15 +148,21 @@ class _SignFormState extends State<SignForm> {
           setState(() {
             errors.add(kEmailNullError);
           });
-          return "";
+          return kEmailNullError;
+        } else if (value!.isEmpty && errors.contains(kEmailNullError)) {
+          return kEmailNullError;
         } else if (!emailValidatorRegEx.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
           setState(() {
             errors.add(kInvalidEmailError);
           });
-          return "";
+          return kInvalidEmailError;
+        } else if (!emailValidatorRegEx.hasMatch(value) &&
+            errors.contains(kInvalidEmailError)) {
+          return kInvalidEmailError;
+        } else {
+          return null;
         }
-        return null;
       },
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) {
@@ -159,15 +179,14 @@ class _SignFormState extends State<SignForm> {
         return null;
       },
       decoration: const InputDecoration(
-        suffixIcon: Icon(
-          Icons.input,
-          color: kPrimaryLightColor,
-        ),
-        border: InputBorder.none,
-        hintText: "Email",
-        prefixIcon: Icon(Icons.email),
-      ),
-      textAlign: TextAlign.center,
+          suffixIcon: Icon(
+            Icons.email,
+            color: kTextColor,
+          ),
+          border: InputBorder.none,
+          labelText: "Email",
+          hintText: "Enter your email",
+          floatingLabelBehavior: FloatingLabelBehavior.always),
     ));
   }
 }

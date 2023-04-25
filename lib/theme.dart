@@ -25,6 +25,14 @@ InputDecorationTheme inputDecorationTheme() {
       focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(28),
           borderSide: BorderSide(color: kPrimaryColor),
+          gapPadding: 10),
+      errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: BorderSide(color: Colors.red),
+          gapPadding: 10),
+      focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: BorderSide(color: kSecoundaryColor),
           gapPadding: 10));
 }
 
