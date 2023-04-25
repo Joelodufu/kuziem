@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:kuziem/screens/mobile/components/text_field_container.dart';
 import 'package:kuziem/constants.dart';
 
 class RoundedInputField extends StatelessWidget {
   final TextInputType inputsTyp;
-  final IconData inputIcon;
-  final String hintText;
+  final IconData inputIcon, sufIcon;
+
+  final String hintText, label;
   final ValueChanged<String> onchanged;
   const RoundedInputField({
     super.key,
@@ -14,24 +13,25 @@ class RoundedInputField extends StatelessWidget {
     required this.hintText,
     required this.onchanged,
     this.inputsTyp = TextInputType.text,
+    this.label = "Emal",
+    this.sufIcon = Icons.import_contacts,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldContainer(
-        child: TextFormField(
+    return TextFormField(
       keyboardType: inputsTyp,
       onChanged: onchanged,
       decoration: InputDecoration(
+        labelText: label,
         suffixIcon: Icon(
-          Icons.input,
+          sufIcon,
           color: kPrimaryLightColor,
         ),
-        border: InputBorder.none,
         hintText: hintText,
         prefixIcon: Icon(inputIcon),
       ),
       textAlign: TextAlign.center,
-    ));
+    );
   }
 }
