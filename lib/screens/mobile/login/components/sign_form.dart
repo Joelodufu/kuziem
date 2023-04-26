@@ -3,8 +3,6 @@ import 'package:kuziem/screens/mobile/Signup/components/or_divider.dart';
 import 'package:kuziem/screens/mobile/forgot_password/forgot_password_screen.dart';
 import 'package:kuziem/screens/mobile/login/components/social_card.dart';
 import 'package:kuziem/screens/mobile/login_success/login_success_screen.dart';
-
-import '../../../../components/form_error.dart';
 import '../../../../constants.dart';
 import '../../../../size_config.dart';
 import '../../components/rounded_button.dart';
@@ -53,7 +51,8 @@ class _SignFormState extends State<SignForm> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => ForgotPassword()));
+                        builder: (BuildContext context) =>
+                            const ForgotPassword()));
                   },
                   child: const Text(
                     "Forgot Password",
@@ -76,8 +75,8 @@ class _SignFormState extends State<SignForm> {
                     Navigator.pushNamed(context, LoginSuccessScreen.routeName);
                   }
                 }),
-            OrDevider(),
-            SocialCard()
+            const OrDevider(),
+            const SocialCard()
           ],
         ));
   }
@@ -121,7 +120,7 @@ class _SignFormState extends State<SignForm> {
             hintText: "Enter your password",
             labelText: "Password",
             suffixIcon: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: IconButton(
                 icon:
                     Icon(!visibility ? Icons.visibility : Icons.visibility_off),
@@ -145,7 +144,7 @@ class _SignFormState extends State<SignForm> {
             errors.add(kEmailNullError);
           });
           return kEmailNullError;
-        } else if (value!.isEmpty && errors.contains(kEmailNullError)) {
+        } else if (value.isEmpty && errors.contains(kEmailNullError)) {
           return kEmailNullError;
         } else if (!emailValidatorRegEx.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
@@ -174,7 +173,7 @@ class _SignFormState extends State<SignForm> {
         suffixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
-            icon: Icon(Icons.email),
+            icon: const Icon(Icons.email),
             onPressed: () {},
           ),
         ),

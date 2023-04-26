@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/screens/mobile/complete_profile/complete_profile_screen.dart';
-import 'package:kuziem/screens/mobile/login/login.dart';
 
-import '../../../../components/form_error.dart';
 import '../../../../constants.dart';
 import '../../../../size_config.dart';
 import '../../components/rounded_button.dart';
@@ -79,7 +77,7 @@ class _SignUpFormState extends State<SignUpForm> {
               errors.add(kPassNullError);
             });
             return kPassNullError;
-          } else if (value!.isEmpty && errors.contains(kPassNullError)) {
+          } else if (value.isEmpty && errors.contains(kPassNullError)) {
             return kPassNullError;
           } else if (value != password && !errors.contains(kMatchPassError)) {
             setState(() {
@@ -97,7 +95,7 @@ class _SignUpFormState extends State<SignUpForm> {
           return null;
         },
         onChanged: (value) {
-          if (value!.isEmpty && errors.contains(kPassNullError)) {
+          if (value.isEmpty && errors.contains(kPassNullError)) {
             removeError(error: kPassNullError);
           } else if (value == password && errors.contains(kMatchPassError)) {
             removeError(error: kMatchPassError);
@@ -110,7 +108,7 @@ class _SignUpFormState extends State<SignUpForm> {
             hintText: "Confirm Password",
             labelText: "Password",
             suffixIcon: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: IconButton(
                 icon:
                     Icon(!visibility ? Icons.visibility : Icons.visibility_off),
@@ -141,7 +139,7 @@ class _SignUpFormState extends State<SignUpForm> {
               errors.add(kPassNullError);
             });
             return kPassNullError;
-          } else if (value!.isEmpty && errors.contains(kPassNullError)) {
+          } else if (value.isEmpty && errors.contains(kPassNullError)) {
             return kPassNullError;
           } else if (value.length < 8 && !errors.contains(kShortPassError)) {
             addError(error: kShortPassError);
@@ -163,7 +161,7 @@ class _SignUpFormState extends State<SignUpForm> {
           hintText: "Enter your password",
           labelText: "Password",
           suffixIcon: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: IconButton(
               icon: Icon(visibility ? Icons.visibility : Icons.visibility_off),
               onPressed: () {
@@ -188,7 +186,7 @@ class _SignUpFormState extends State<SignUpForm> {
             errors.add(kEmailNullError);
           });
           return kEmailNullError;
-        } else if (value!.isEmpty && errors.contains(kEmailNullError)) {
+        } else if (value.isEmpty && errors.contains(kEmailNullError)) {
           return kEmailNullError;
         } else if (!emailValidatorRegEx.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
@@ -216,7 +214,7 @@ class _SignUpFormState extends State<SignUpForm> {
         suffixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
-            icon: Icon(Icons.email),
+            icon: const Icon(Icons.email),
             onPressed: () {},
           ),
         ),

@@ -6,7 +6,7 @@ import '../../components/rounded_button.dart';
 import '../../components/text_field_container.dart';
 
 class CompleteProfileForm extends StatefulWidget {
-  CompleteProfileForm({super.key});
+  const CompleteProfileForm({super.key});
 
   @override
   State<CompleteProfileForm> createState() => _CompleteProfileFormState();
@@ -68,7 +68,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           SizedBox(
             height: SizeConfig.screenHeight * 0.02,
           ),
-          Text(
+          const Text(
             "By continuing you confirm that you agree \nwith our Terms and Conditions",
             textAlign: TextAlign.center,
           ),
@@ -87,7 +87,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             errors.add(kAddressNullErro);
           });
           return kAddressNullErro;
-        } else if (value!.isEmpty && errors.contains(kAddressNullErro)) {
+        } else if (value.isEmpty && errors.contains(kAddressNullErro)) {
           return kAddressNullErro;
         }
         return null;
@@ -104,7 +104,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         suffixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
-            icon: Icon(Icons.location_on),
+            icon: const Icon(Icons.location_on),
             onPressed: () {},
           ),
         ),
@@ -122,7 +122,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             errors.add(kPhonNumberNullError);
           });
           return kPhonNumberNullError;
-        } else if (value!.isEmpty && errors.contains(kPhonNumberNullError)) {
+        } else if (value.isEmpty && errors.contains(kPhonNumberNullError)) {
           return kPhonNumberNullError;
         }
         return null;
@@ -140,7 +140,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         suffixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
-            icon: Icon(Icons.phone),
+            icon: const Icon(Icons.phone),
             onPressed: () {},
           ),
         ),
@@ -157,7 +157,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             errors.add(kNameNullErro);
           });
           return kNameNullErro;
-        } else if (value!.isEmpty && errors.contains(kNameNullErro)) {
+        } else if (value.isEmpty && errors.contains(kNameNullErro)) {
           return kNameNullErro;
         }
         return null;
@@ -175,7 +175,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         suffixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
-            icon: Icon(Icons.person_2_outlined),
+            icon: const Icon(Icons.person_2_outlined),
             onPressed: () {},
           ),
         ),
@@ -193,7 +193,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             errors.add(kNameNullErro);
           });
           return kNameNullErro;
-        } else if (value!.isEmpty && errors.contains(kNameNullErro)) {
+        } else if (value.isEmpty && errors.contains(kNameNullErro)) {
           return kNameNullErro;
         }
         return null;
@@ -210,7 +210,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         suffixIcon: Padding(
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
-            icon: Icon(Icons.person_2_outlined),
+            icon: const Icon(Icons.person_2_outlined),
             onPressed: () {},
           ),
         ),
