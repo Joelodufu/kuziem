@@ -39,15 +39,6 @@ class Body extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Form(
-                child: Column(
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                      labelText: "Email", hintText: "ENter your email"),
-                )
-              ],
-            )),
             // SignForm(),
             AlreadyHaveAnAccountCheck(
               login: true,

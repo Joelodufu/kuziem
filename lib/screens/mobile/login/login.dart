@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kuziem/constants.dart';
-import 'package:kuziem/screens/mobile/Signup/signup_screen.dart';
-import 'package:kuziem/screens/mobile/forgot_password/forgot_password_screen.dart';
-import 'package:kuziem/size_config.dart';
+import '../../../constants.dart';
+import '../../../size_config.dart';
+import '../Signup/signup_screen.dart';
 import '../components/already_have_an_account_check.dart';
 import '../components/background.dart';
+import 'components/body.dart';
 import 'components/sign_form.dart';
 
 class Login extends StatelessWidget {
@@ -13,7 +13,6 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Background(
