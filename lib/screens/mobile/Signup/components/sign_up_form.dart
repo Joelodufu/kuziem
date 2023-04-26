@@ -71,6 +71,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   //Complete the form action
                 }
               }),
+          createPadding(),
         ],
       ),
     );
