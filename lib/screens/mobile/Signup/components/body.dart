@@ -25,10 +25,7 @@ class Body extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: getProportionalScreenHeight(20),
-            ),
-            Text(
+            const Text(
               "Register Account",
               style: TextStyle(
                 color: Color.fromARGB(255, 50, 80, 109),
@@ -36,22 +33,33 @@ class Body extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 5,
+              height: SizeConfig.screenHeight * 0.02,
             ),
-            Text(
+            const Text(
               "Complete your details or continue \nwith social media",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: kTextColor,
               ),
             ),
-            SignUpForm(),
-            SocialCardMain(),
+            SizedBox(
+              height: SizeConfig.screenHeight * 0.02,
+            ),
+            const SignUpForm(),
+            const SocialCardMain(),
             AlreadyHaveAnAccountCheck(
                 login: false,
                 press: () {
                   Navigator.pushNamed(context, Login.routeName);
                 }),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.screenHeight * 0.02),
+              child: const Text(
+                "By continuing you confirm that you agree \nwith our Terms and Conditions",
+                textAlign: TextAlign.center,
+              ),
+            )
           ],
         ),
       ),

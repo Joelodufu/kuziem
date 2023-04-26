@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:kuziem/constants.dart';
 import 'package:kuziem/routes.dart';
 import 'package:kuziem/screens/mobile/splash/splashscreenpage.dart';
-import 'package:kuziem/size_config.dart';
 import 'package:kuziem/theme.dart';
 
 void main() {
@@ -21,7 +18,7 @@ class MyApp extends StatelessWidget {
 
       //home: SplashScreenPage(),
       theme: theme(),
-      initialRoute: SplashScreenPage.routeName,
+      initialRoute: "/splash",
       routes: routes,
     );
   }

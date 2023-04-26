@@ -31,6 +31,9 @@ class _BodyState extends State<Body> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(
+            height: SizeConfig.screenHeight * 0.05,
+          ),
           const Text(
             "Forgot Pasword",
             style: TextStyle(
@@ -62,6 +65,10 @@ class _BodyState extends State<Body> {
                       setState(() {
                         errors.add(kEmailNullError);
                       });
+                      return "";
+                    } else if (value.isEmpty &&
+                        errors.contains(kEmailNullError)) {
+                      return "";
                     } else if (!emailValidatorRegEx.hasMatch(value) &&
                         !errors.contains(kInvalidEmailError)) {
                       setState(() {

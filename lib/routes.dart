@@ -7,6 +7,6 @@ import 'package:kuziem/screens/mobile/splash/splashscreenpage.dart';
 final Map<String, WidgetBuilder> routes = {
   SplashScreenPage.routeName: (context) => SplashScreenPage(),
   Login.routeName: (context) => Login(),
-  ForgotPassword.routeName: (context) => ForgotPassword(),
-  LoginSuccessScreen.routeName: (context) => LoginSuccessScreen()
+  ForgotPassword.routeName: (context) => const ForgotPassword(),
+  LoginSuccessScreen.routeName: (context) => const LoginSuccessScreen(),
 };
