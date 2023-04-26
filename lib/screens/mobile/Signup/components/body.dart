@@ -5,7 +5,6 @@ import 'package:kuziem/size_config.dart';
 
 import '../../../../constants.dart';
 import '../../components/already_have_an_account_check.dart';
-import '../../components/background.dart';
 import '../../login/login.dart';
 
 class Body extends StatelessWidget {
@@ -52,6 +51,14 @@ class Body extends StatelessWidget {
                 press: () {
                   Navigator.pushNamed(context, Login.routeName);
                 }),
+            Container(
+              margin:
+                  EdgeInsets.symmetric(vertical: SizeConfig.screnWidth * 0.04),
+              child: Text(
+                "By continuing you confirm that you agree \nwith our terms and conditions",
+                textAlign: TextAlign.center,
+              ),
+            )
           ],
         ),
       ),

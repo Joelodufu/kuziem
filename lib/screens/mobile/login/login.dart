@@ -15,9 +15,9 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Background(
-          child: SingleChildScrollView(
-        child: Column(
+      body: SingleChildScrollView(
+        child: Background(
+            child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
@@ -52,8 +52,8 @@ class Login extends StatelessWidget {
               },
             )
           ],
-        ),
-      )),
+        )),
+      ),
     );
   }
 }
