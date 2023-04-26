@@ -22,12 +22,9 @@ class Login extends StatelessWidget {
           SizedBox(
             height: getProportionalScreenWidth(40),
           ),
-          const Text(
+          Text(
             "Welcome Back",
-            style: TextStyle(
-              color: Color.fromARGB(255, 50, 80, 109),
-              fontSize: 20,
-            ),
+            style: headStyle,
           ),
           const SizedBox(
             height: 5,

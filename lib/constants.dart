@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kuziem/size_config.dart';
 
 const kPrimaryColor = Color.fromARGB(255, 6, 68, 109);
 const kPrimaryLightColor = Color.fromARGB(255, 223, 246, 255);
@@ -16,11 +17,19 @@ const kPrimaryGradient = LinearGradient(colors: [
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
+final headStyle = TextStyle(
+  color: Color.fromARGB(255, 50, 80, 109),
+  fontSize: getProportionalScreenWidth(25),
+);
+
 //form Error
 final RegExp emailValidatorRegEx =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String kEmailNullError = "Please Enter your email";
-const String kInvalidEmailError = "Please ENter Valid Email";
+const String kInvalidEmailError = "Please Enter Valid Email";
 const String kPassNullError = "Please Enter your password";
 const String kShortPassError = "Password is too short";
-const String kMatchPassError = "Password don't mat h";
+const String kMatchPassError = "Password don't match";
+const String kNameNullErro = "Please Enter your name";
+const String kPhonNumberNullError = "Please Enter your phone number";
+const String kAddressNullErro = "Please Enter your address";

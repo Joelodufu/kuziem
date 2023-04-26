@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
       //home: SplashScreenPage(),
       theme: theme(),
-      initialRoute: "/splash",
+      initialRoute: SplashScreenPage.routeName,
       routes: routes,
     );
   }

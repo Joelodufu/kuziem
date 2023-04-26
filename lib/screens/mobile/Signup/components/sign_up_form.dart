@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kuziem/screens/mobile/complete_profile/complete_profile_screen.dart';
 import 'package:kuziem/screens/mobile/login/login.dart';
 
 import '../../../../components/form_error.dart';
@@ -58,6 +59,7 @@ class _SignUpFormState extends State<SignUpForm> {
               text: "Continue",
               press: () {
                 if (_formKey.currentState!.validate()) {
+                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
                   //Complete the form action
                 }
               }),

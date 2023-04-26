@@ -46,7 +46,7 @@ class _SignFormState extends State<SignForm> {
                         remember = value!;
                       });
                     }),
-                Text("Remember Me"),
+                const Text("Remember Me"),
                 SizedBox(
                   width: getProportionalScreenWidth(40),
                 ),
@@ -55,7 +55,7 @@ class _SignFormState extends State<SignForm> {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (BuildContext context) => ForgotPassword()));
                   },
-                  child: Text(
+                  child: const Text(
                     "Forgot Password",
                     style: TextStyle(
                       decoration: TextDecoration.underline,
@@ -70,7 +70,7 @@ class _SignFormState extends State<SignForm> {
             RoundButton(
                 text: "Login",
                 color: Colors.white,
-                background: Colors.blue,
+                background: kPrimaryColor,
                 press: () {
                   if (_formKey.currentState!.validate()) {
                     Navigator.pushNamed(context, LoginSuccessScreen.routeName);

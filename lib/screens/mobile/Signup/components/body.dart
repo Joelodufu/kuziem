@@ -18,19 +18,16 @@ class Body extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Signup'),
+        title: const Text('Signup'),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: getProportionalScreenWidth(50)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               "Register Account",
-              style: TextStyle(
-                color: Color.fromARGB(255, 50, 80, 109),
-                fontSize: 20,
-              ),
+              style: headStyle,
             ),
             SizedBox(
               height: SizeConfig.screenHeight * 0.02,
