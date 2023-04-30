@@ -3,6 +3,7 @@ import 'package:kuziem/constants.dart';
 import 'package:kuziem/screens/mobile/components/rounded_button.dart';
 import 'package:kuziem/size_config.dart';
 
+import '../../home_screen/home_screen.dart';
 import '../../login/login.dart';
 
 class Body extends StatelessWidget {
@@ -42,7 +43,7 @@ class Body extends StatelessWidget {
               child: RoundButton(
                   text: "Back to home",
                   press: () {
-                    Navigator.popAndPushNamed(context, Login.routeName);
+                    Navigator.pushNamed(context, HomeScreen.routeName);
                   }))
         ],
       ),

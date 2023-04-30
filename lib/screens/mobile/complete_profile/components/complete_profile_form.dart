@@ -4,6 +4,7 @@ import '../../../../constants.dart';
 import '../../../../size_config.dart';
 import '../../components/rounded_button.dart';
 import '../../components/text_field_container.dart';
+import '../../home_screen/home_screen.dart';
 
 class CompleteProfileForm extends StatefulWidget {
   const CompleteProfileForm({super.key});
@@ -62,6 +63,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               text: "Continue",
               press: () {
                 if (_formKey.currentState!.validate()) {
+                  Navigator.pushNamed(context, HomeScreen.routeName);
                   //Complete the form action
                 }
               }),
@@ -75,7 +77,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         ],
       ),
     );
-  }
+  } 
 
   TextFieldContainer buildAddressFormField() {
     return TextFieldContainer(

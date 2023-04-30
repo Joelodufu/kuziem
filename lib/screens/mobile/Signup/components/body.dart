@@ -5,7 +5,6 @@ import 'package:kuziem/size_config.dart';
 
 import '../../../../constants.dart';
 import '../../components/already_have_an_account_check.dart';
-import '../../components/background.dart';
 import '../../login/login.dart';
 
 class Body extends StatelessWidget {
