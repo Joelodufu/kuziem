@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants.dart';
-import '../../../../size_config.dart';
+import '../../../constants.dart';
+import '../../../size_config.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
@@ -9,13 +9,14 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icons": Icons.construction, "text": "Artisans"},
-      {"icons": Icons.computer, "text": "Computing"},
-      {"icons": Icons.engineering, "text": "Engineering"},
-      {"icons": Icons.bookmark_add_outlined, "text": "Accademic"},
+      {"icons": Icons.construction, "text": ""},
+      {"icons": Icons.computer, "text": ""},
+      {"icons": Icons.engineering, "text": ""},
+      {"icons": Icons.school, "text": ""},
+      {"icons": Icons.workspace_premium, "text": ""},
     ];
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: getProportionalScreenWidth(10)),
+      padding: EdgeInsets.symmetric(horizontal: getProportionalScreenWidth(30)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,7 +26,9 @@ class Categories extends StatelessWidget {
               (index) => CategoryCard(
                   icon: categories[index]["icons"],
                   text: categories[index]["text"],
-                  press: () {}))
+                  press: () {
+                    //take us to courses page with cartegories of TEXT selected
+                  }))
         ],
       ),
     );
@@ -72,8 +75,9 @@ class CategoryCard extends StatelessWidget {
               text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.bold,),
+                color: kPrimaryColor,
+                fontWeight: FontWeight.bold,
+              ),
             )
           ],
         ),

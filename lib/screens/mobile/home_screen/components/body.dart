@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
-import 'package:kuziem/screens/mobile/home_screen/components/category.dart';
+import 'package:kuziem/screens/student_home/components/categories.dart';
 import 'package:kuziem/size_config.dart';
 import 'course_card.dart';
 import 'search_bar.dart';
