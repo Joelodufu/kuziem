@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:kuziem/screens/mobile/login_success/components/body.dart';
-import 'package:kuziem/screens/student_home/student_home_screen.dart';
+import 'package:kuziem/screens/mobile/student_home/student_home_screen.dart';
 
 class LoginSuccessScreen extends StatefulWidget {
   static String routeName = "/login_success";

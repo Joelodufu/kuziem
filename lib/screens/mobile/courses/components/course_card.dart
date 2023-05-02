@@ -7,7 +7,10 @@ import '../../../../constants.dart';
 class CourseCard extends StatelessWidget {
   const CourseCard({
     super.key,
+    required this.course,
   });
+
+  final Course course;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +28,7 @@ class CourseCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(3),
                 child: FittedBox(
                   fit: BoxFit.cover,
-                  child: Image(
-                      image: AssetImage("assets/images/data_analysis.png")),
+                  child: Image(image: AssetImage(course.images[0])),
                 )),
           ),
           Padding(
@@ -34,7 +36,7 @@ class CourseCard extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Introduction to Data Analysys",
+                  course.title,
                   style: TextStyle(
                       fontSize: getProportionalScreenWidth(22),
                       fontWeight: FontWeight.bold,
@@ -48,9 +50,9 @@ class CourseCard extends StatelessWidget {
                   children: [
                     Icon(Icons.badge_outlined),
                     SizedBox(
-                      width: getProportionalScreenWidth(10),
+                      width: getProportionalScreenWidth(5),
                     ),
-                    Text("British Standard for Legal Institution")
+                    Text(course.affiliation)
                   ],
                 ),
                 SizedBox(
@@ -61,9 +63,9 @@ class CourseCard extends StatelessWidget {
                   children: [
                     Icon(Icons.handshake_rounded),
                     SizedBox(
-                      width: getProportionalScreenWidth(10),
+                      width: getProportionalScreenWidth(5),
                     ),
-                    Text("Google, Nigerian Institute...")
+                    Text(course.colaborators[0])
                   ],
                 ),
                 SizedBox(
@@ -72,18 +74,18 @@ class CourseCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Icon(Icons.date_range),
+                    const Icon(Icons.date_range),
                     SizedBox(
-                      width: getProportionalScreenWidth(10),
+                      width: getProportionalScreenWidth(5),
                     ),
-                    Text(
+                    const Text(
                       "25th/04/2023",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
                 Text(
-                  "₦19,900",
+                  "₦${course.price}",
                   textAlign: TextAlign.start,
                   style: headStyle,
                 )

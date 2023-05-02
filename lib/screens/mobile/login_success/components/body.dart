@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
 import 'package:kuziem/screens/mobile/components/rounded_button.dart';
-import 'package:kuziem/screens/student_home/student_home_screen.dart';
+import 'package:kuziem/screens/mobile/student_home/student_home_screen.dart';
 import 'package:kuziem/size_config.dart';
 
 class Body extends StatelessWidget {

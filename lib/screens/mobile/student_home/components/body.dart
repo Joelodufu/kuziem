@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kuziem/screens/student_home/components/categories.dart';
-import 'package:kuziem/screens/student_home/components/discount_banner.dart';
+import 'package:kuziem/constants.dart';
+import 'package:kuziem/screens/mobile/student_home/components/categories.dart';
+import 'package:kuziem/screens/mobile/student_home/components/discount_banner.dart';
 import 'package:kuziem/size_config.dart';
+import '../../../../model/Course.dart';
+import '../../courses/courses_screen.dart';
+import './course_card.dart';
 import 'home_header.dart';
 
 class Body extends StatelessWidget {
@@ -17,50 +21,44 @@ class Body extends StatelessWidget {
             height: getProportionalScreenWidth(20),
           ),
           const HomeHeader(),
-          DiscountBanner(),
+          const DiscountBanner(),
+
+          //Categories(),
           SessionHeader(
-              sessionTitle: "Categories",
+              sessionTitle: "Digital Skills Courses",
               press: () {
-                //send to courses page with interest cargories selected
+                //take to list of courses from lates
+                Navigator.pushNamed(context, CoursesScreen.routeName);
               }),
-          Categories(),
-          SessionHeader(
-            sessionTitle: "Special for you",
-            press: () {
-              //send to courses page with interest cargories selected
-            },
-          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SpecialOfferCard(
-                  image: "assets/images/android.jpeg",
-                  category: "Digital Skills",
-                  numberOfCourses: 23,
-                  press: () {
-                    //route to courses that offers the cartegory
-                  },
-                ),
-                SpecialOfferCard(
-                  image: "assets/images/androids.png",
-                  category: "Digital Skills",
-                  numberOfCourses: 23,
-                  press: () {
-                    //route to courses that offers the cartegory
-                  },
-                ),
-                SpecialOfferCard(
-                  image: "assets/images/android.jpeg",
-                  category: "Digital Skills",
-                  numberOfCourses: 23,
-                  press: () {
-                    //route to courses that offers the cartegory
-                  },
-                ),
+                ...List.generate(demoCourses.length,
+                    (index) => CourseCard(course: demoCourses[index]))
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: getProportionalScreenWidth(20),
+          ),
+          SessionHeader(
+              sessionTitle: "Digital Skills Courses",
+              press: () {
+                //take to list of courses from lates
+                Navigator.pushNamed(context, CoursesScreen.routeName);
+              }),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ...List.generate(demoCourses.length,
+                    (index) => CourseCard(course: demoCourses[index]))
+              ],
+            ),
+          ),
         ],
       ),
     ));

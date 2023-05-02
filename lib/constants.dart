@@ -4,7 +4,7 @@ import 'package:kuziem/size_config.dart';
 const kPrimaryColor = Color.fromARGB(255, 6, 68, 109);
 const kPrimaryLightColor = Color.fromARGB(255, 223, 246, 255);
 
-const kSecoundaryColor = Color.fromARGB(255, 8, 197, 255);
+const kSecoundaryColor = Color.fromARGB(255, 255, 140, 8);
 const kTextColor = Color(0xff757575);
 
 const kMobilewidth = 414;

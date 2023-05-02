@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
-import 'package:kuziem/screens/mobile/student_home/components/categories.dart';
 import 'package:kuziem/size_config.dart';
-import 'course_card.dart';
-import '../../courses/components/search_bar.dart';
+import '../../../../model/Course.dart';
+import 'course_card_small.dart';
+import 'search_bar.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -21,23 +20,22 @@ class Body extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(children: [
               SearchBar(),
-              const SizedBox(
-                height: 20,
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: getProportionalScreenWidth(10)),
                 child: Column(
                   children: [
-                    buildSessionHeader("Category"),
-                    Categories(),
-                    Divider(),
-                    buildSessionHeader("Most Recent"),
-                    CourseCard(),
-                    CourseCard(),
-                    CourseCard(),
-                    CourseCard(),
-                    CourseCard(),
+                    GridView.count(
+                        childAspectRatio: 0.68,
+                        physics: const NeverScrollableScrollPhysics(),
+                        crossAxisCount: 2,
+                        shrinkWrap: true,
+                        children: [
+                          ...List.generate(
+                              demoCourses.length,
+                              (index) =>
+                                  CoureCardSmall(course: demoCourses[index]))
+                        ]),
                   ],
                 ),
               )
@@ -56,7 +54,8 @@ class Body extends StatelessWidget {
           horizontal: getProportionalScreenWidth(10)),
       child: Text(
         header,
-        style: TextStyle(fontWeight: FontWeight.bold, color: kPrimaryColor),
+        style:
+            const TextStyle(fontWeight: FontWeight.bold, color: kPrimaryColor),
       ),
     );
   }
@@ -73,8 +72,8 @@ class CoursesWidget extends StatelessWidget {
       shrinkWrap: true,
       children: [
         Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
@@ -83,7 +82,7 @@ class CoursesWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         color: kPrimaryColor,
                         borderRadius: BorderRadius.circular(20)),
@@ -95,7 +94,7 @@ class CoursesWidget extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.favorite_border,
                     color: Colors.red,
                   )

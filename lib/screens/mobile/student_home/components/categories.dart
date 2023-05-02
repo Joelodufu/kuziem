@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
-import '../../../size_config.dart';
+import '../../../../constants.dart';
+import '../../../../size_config.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
@@ -60,11 +60,11 @@ class CategoryCard extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(getProportionalScreenWidth(10)),
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 247, 247, 247),
+                    color: kSecoundaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(10)),
                 child: Icon(
                   icon,
-                  color: kPrimaryColor,
+                  color: kSecoundaryColor,
                 ),
               ),
             ),
