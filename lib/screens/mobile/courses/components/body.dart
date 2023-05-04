@@ -10,6 +10,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return ListView(
       children: [
         Container(
@@ -28,7 +29,11 @@ class Body extends StatelessWidget {
                     GridView.count(
                         childAspectRatio: 0.68,
                         physics: const NeverScrollableScrollPhysics(),
-                        crossAxisCount: 2,
+                        crossAxisCount: screenWidth < 340
+                            ? 1
+                            : screenWidth < 480
+                                ? 2
+                                : 3,
                         shrinkWrap: true,
                         children: [
                           ...List.generate(

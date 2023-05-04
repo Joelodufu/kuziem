@@ -38,7 +38,6 @@ class CoureCardSmall extends StatelessWidget {
                 ]),
             child: Column(children: [
               SizedBox(
-                height: getProportionalScreenWidth(100),
                 child: Image.asset(
                   course.images[0],
                   fit: BoxFit.cover,
