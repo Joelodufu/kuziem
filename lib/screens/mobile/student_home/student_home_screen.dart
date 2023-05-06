@@ -1,9 +1,11 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:kuziem/constants.dart';
 import 'package:kuziem/screens/mobile/student_home/components/body.dart';
 import '../../../enums.dart';
 import '../components/bottom_navigation_bar_main.dart';
 import '../components/navigator_main.dart';
+import '../questions/question_screen.dart';
 
 class StudentHomeScreen extends StatelessWidget {
   static String routeName = "/student_home";
@@ -12,13 +14,23 @@ class StudentHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Home"),
+      appBar: AppBar(
+        title: const Text("Home"),
+      ),
+      body: Body(),
+      drawer: const NavigatorMain(),
+      bottomNavigationBar: const BottomNavigationBarMain(
+        selectedMenu: MenuState.home,
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: kPrimaryColor,
+        onPressed: () {
+          Navigator.pushNamed(context, QuestionScreen.routeName);
+        },
+        child: Icon(
+          Icons.question_mark,
         ),
-        body: Body(),
-        drawer: const NavigatorMain(),
-        bottomNavigationBar: const BottomNavigationBarMain(
-          selectedMenu: MenuState.home,
-        ));
+      ),
+    );
   }
 }
