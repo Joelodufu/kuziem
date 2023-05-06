@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:kuziem/screens/mobile/components/bottom_navigation_bar_main.dart';
 
 import '../../../enums.dart';
-import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
 import 'components/body.dart';
 
@@ -15,11 +13,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: const Text("Home"),
       ),
       drawer: const NavigatorMain(),
       body: Body(),
-      bottomNavigationBar: CostumBottomNavbar(
+      bottomNavigationBar: const BottomNavigationBarMain(
         selectedMenu: MenuState.classes,
       ),
     );

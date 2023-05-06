@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
-import 'package:kuziem/screens/mobile/home_screen/home_screen.dart';
-import 'package:kuziem/screens/mobile/student_home/student_home_screen.dart';
 import '../../../enums.dart';
-import '../components/costum_nav_bar.dart';
+import '../components/bottom_navigation_bar_main.dart';
 import '../components/navigator_main.dart';
 import 'components/body.dart';
 
@@ -19,8 +17,8 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: const Body(),
       drawer: const NavigatorMain(),
-      bottomNavigationBar: CostumBottomNavbar(
-        selectedMenu: MenuState.classes,
+      bottomNavigationBar: const BottomNavigationBarMain(
+        selectedMenu: MenuState.settings,
       ),
     );
   }
