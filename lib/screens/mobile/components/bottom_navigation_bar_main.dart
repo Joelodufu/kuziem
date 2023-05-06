@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:kuziem/screens/mobile/settings/settings_screen.dart';
 import 'package:kuziem/screens/mobile/student_home/student_home_screen.dart';
 
 import '../../../constants.dart';
@@ -28,11 +27,11 @@ class BottomNavigationBarMain extends StatelessWidget {
         backgroundColor: Colors.transparent,
         onTap: (index) {},
         items: [
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, CoursesScreen.routeName);
-            },
-            child: Expanded(
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, CoursesScreen.routeName);
+              },
               child: const Icon(
                 Icons.book,
                 size: 30,
@@ -40,24 +39,24 @@ class BottomNavigationBarMain extends StatelessWidget {
               ),
             ),
           ),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, StudentHomeScreen.routeName);
-            },
-            child: const Expanded(
-              child: Icon(
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, StudentHomeScreen.routeName);
+              },
+              child: const Icon(
                 Icons.home,
                 size: 30,
                 color: Colors.white,
               ),
             ),
           ),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, SettingsScreen.routeName);
-            },
-            child: const Expanded(
-              child: Icon(
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, ProfileScreen.routeName);
+              },
+              child: const Icon(
                 Icons.settings,
                 size: 30,
                 color: Colors.white,
