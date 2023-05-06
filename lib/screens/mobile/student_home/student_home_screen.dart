@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/screens/mobile/student_home/components/body.dart';
+import '../../../enums.dart';
+import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
 
 class StudentHomeScreen extends StatelessWidget {
@@ -14,6 +16,9 @@ class StudentHomeScreen extends StatelessWidget {
       ),
       body: Body(),
       drawer: const NavigatorMain(),
+      bottomNavigationBar: CostumBottomNavbar(
+        selectedMenu: MenuState.classes,
+      ),
     );
   }
 }
