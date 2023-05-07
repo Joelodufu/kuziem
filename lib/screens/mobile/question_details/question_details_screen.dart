@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:kuziem/enums.dart';
+import 'package:kuziem/model/Message.dart';
 
-import '../components/bottom_navigation_bar_main.dart';
+import '../../../enums.dart';
 import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
-import 'components/body.dart';
+import './components/body.dart';
 
-class QuestionScreen extends StatelessWidget {
-  const QuestionScreen({super.key});
-  static String routeName = "/question";
+class QuestionDetailsScreen extends StatelessWidget {
+  const QuestionDetailsScreen({super.key, required this.message});
+  static String routeName = "/message_details";
+  final Message message;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Questions"),
         ),
-        body: const Body(),
+        body: Body(
+          message: message,
+        ),
         drawer: const NavigatorMain(),
         bottomNavigationBar: const CostumBottomNavbar(
           selectedMenu: MenuState.home,

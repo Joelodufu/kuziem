@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../enums.dart';
-import '../home_screen/home_screen.dart';
+import '../courses/courses_screen.dart';
+import '../settings/settings_screen.dart';
 import '../student_home/student_home_screen.dart';
 
 class CostumBottomNavbar extends StatelessWidget {
@@ -14,7 +15,7 @@ class CostumBottomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color inActiveIconColor = Color(0xffb6b6b6);
+    const Color inActiveIconColor = Color.fromARGB(255, 150, 150, 150);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 14),
       decoration: BoxDecoration(
@@ -25,7 +26,7 @@ class CostumBottomNavbar extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-                offset: Offset(0, -15),
+                offset: const Offset(0, -15),
                 blurRadius: 20,
                 color: Colors.grey.withOpacity(0.15))
           ]),
@@ -35,13 +36,14 @@ class CostumBottomNavbar extends StatelessWidget {
         children: [
           IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, HomeScreen.routeName);
+                Navigator.pushNamed(context, CoursesScreen.routeName);
               },
               icon: Icon(
                 Icons.book,
                 color: MenuState.classes == selectedMenu
                     ? Colors.white
                     : inActiveIconColor,
+                size: MenuState.classes == selectedMenu ? 20 : 15,
               )),
           IconButton(
               onPressed: () {
@@ -52,16 +54,18 @@ class CostumBottomNavbar extends StatelessWidget {
                 color: MenuState.home == selectedMenu
                     ? Colors.white
                     : inActiveIconColor,
+                size: MenuState.home == selectedMenu ? 25 : 20,
               )),
           IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, HomeScreen.routeName);
+                Navigator.pushNamed(context, SettingsScreen.routeName);
               },
               icon: Icon(
                 Icons.settings,
                 color: MenuState.settings == selectedMenu
                     ? Colors.white
                     : inActiveIconColor,
+                size: MenuState.settings == selectedMenu ? 25 : 20,
               )),
         ],
       )),

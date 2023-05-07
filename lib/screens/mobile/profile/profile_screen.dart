@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kuziem/constants.dart';
 import '../../../enums.dart';
-import '../components/bottom_navigation_bar_main.dart';
+import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
 import 'components/body.dart';
 
@@ -17,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: const Body(),
       drawer: const NavigatorMain(),
-      bottomNavigationBar: const BottomNavigationBarMain(
+      bottomNavigationBar: const CostumBottomNavbar(
         selectedMenu: MenuState.settings,
       ),
     );

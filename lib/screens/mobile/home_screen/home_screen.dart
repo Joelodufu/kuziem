@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kuziem/screens/mobile/components/bottom_navigation_bar_main.dart';
-
 import '../../../enums.dart';
+import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
 import 'components/body.dart';
 
@@ -16,9 +15,9 @@ class HomeScreen extends StatelessWidget {
         title: const Text("Home"),
       ),
       drawer: const NavigatorMain(),
-      body: Body(),
-      bottomNavigationBar: const BottomNavigationBarMain(
-        selectedMenu: MenuState.classes,
+      body: const Body(),
+      bottomNavigationBar: const CostumBottomNavbar(
+        selectedMenu: MenuState.home,
       ),
     );
   }

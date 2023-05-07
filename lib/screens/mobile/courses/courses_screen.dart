@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kuziem/screens/mobile/components/bottom_navigation_bar_main.dart';
 import '../../../enums.dart';
+import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
 import './components/body.dart';
 
@@ -14,7 +14,7 @@ class CoursesScreen extends StatelessWidget {
       appBar: AppBar(title: const Text("Latest Courses")),
       body: const Body(),
       drawer: const NavigatorMain(),
-      bottomNavigationBar: const BottomNavigationBarMain(
+      bottomNavigationBar: const CostumBottomNavbar(
         selectedMenu: MenuState.classes,
       ),
     );
