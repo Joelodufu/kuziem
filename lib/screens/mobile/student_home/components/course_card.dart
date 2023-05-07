@@ -9,11 +9,12 @@ class CourseCard extends StatelessWidget {
     super.key,
     this.width = 140,
     this.aspectRatio = 1.02,
-    required this.course,
+    required this.course, required this.press,
   });
 
   final double width, aspectRatio;
   final Course course;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +24,18 @@ class CourseCard extends StatelessWidget {
         width: getProportionalScreenWidth(width),
         child: Column(
           children: [
-            AspectRatio(
-              aspectRatio: aspectRatio,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: kPrimaryColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Image.asset(
-                  course.images[0],
-                  //fit: BoxFit.cover,
+            GestureDetector(
+              onTap: press,
+              child: AspectRatio(
+                aspectRatio: aspectRatio,
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: kPrimaryColor.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Image.asset(
+                    course.images[0],
+                    //fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -41,7 +45,7 @@ class CourseCard extends StatelessWidget {
             Text(
               //textAlign: TextAlign.center,
               course.title,
-              style: TextStyle(color: Colors.black, fontSize: 20),
+              style: const TextStyle(color: Colors.black, fontSize: 20),
               maxLines: 2,
             ),
             SizedBox(

@@ -19,40 +19,40 @@ class CourseClass {
   });
 }
 
-List<CourseClass> classes = [
+List<CourseClass> demoCLasses = [
   const CourseClass(
       title: "Introduction",
       course: "001", //the ID of the course it belongs to
-      id: "001",
+      id: "class001",
       link: "httplinktovideo",
       startTime: "StartTimeTimeStamp",
       endTime: "EndTimeTimeStamp",
-      questions: ["How Much is the cost"]),
+      questions: ["How Much is the cost?"]),
   const CourseClass(
       title: "Data Mining",
       course: "001", //the ID of the course it belongs to
-      id: "002",
+      id: "class002",
       link: "httplinktovideo",
       startTime: "StartTimeTimeStamp",
       endTime: "EndTimeTimeStamp"),
   const CourseClass(
       title: "Introduction to Python",
       course: "001", //the ID of the course it belongs to
-      id: "003",
+      id: "class003",
       link: "httplinktovideo",
       startTime: "StartTimeTimeStamp",
       endTime: "EndTimeTimeStamp"),
   const CourseClass(
       title: "Data Presentation",
       course: "001", //the ID of the course it belongs to
-      id: "004",
+      id: "class004",
       link: "httplinktovideo",
       startTime: "StartTimeTimeStamp",
       endTime: "EndTimeTimeStamp"),
   const CourseClass(
       title: "Conclution/Summary",
       course: "001", //the ID of the course it belongs to
-      id: "005",
+      id: "class005",
       link: "httplinktovideo",
       startTime: "StartTimeTimeStamp",
       endTime: "EndTimeTimeStamp"),

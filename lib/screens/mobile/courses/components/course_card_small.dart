@@ -9,19 +9,16 @@ class CoureCardSmall extends StatelessWidget {
   const CoureCardSmall({
     super.key,
     required this.course,
+    required this.press,
   });
 
   final Course course;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        //navigate into the course details with the course ID
-        if (kDebugMode) {
-          print("${course.title}");
-        }
-      },
+      onTap: press,
       child: SizedBox(
           height: getProportionalScreenWidth(300),
           width: getProportionalScreenWidth(160),

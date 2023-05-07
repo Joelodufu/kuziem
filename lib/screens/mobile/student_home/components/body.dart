@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kuziem/constants.dart';
-import 'package:kuziem/screens/mobile/student_home/components/categories.dart';
+import 'package:kuziem/screens/mobile/course_details/course_details_screen.dart';
 import 'package:kuziem/screens/mobile/student_home/components/discount_banner.dart';
 import 'package:kuziem/size_config.dart';
 import '../../../../model/Course.dart';
@@ -35,8 +34,18 @@ class Body extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ...List.generate(demoCourses.length,
-                    (index) => CourseCard(course: demoCourses[index]))
+                ...List.generate(
+                    demoCourses.length,
+                    (index) => CourseCard(
+                          course: demoCourses[index],
+                          press: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CourseDetailsScreen(
+                                        course: demoCourses[index])));
+                          },
+                        ))
               ],
             ),
           ),
@@ -54,8 +63,18 @@ class Body extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ...List.generate(demoCourses.length,
-                    (index) => CourseCard(course: demoCourses[index]))
+                ...List.generate(
+                    demoCourses.length,
+                    (index) => CourseCard(
+                          course: demoCourses[index],
+                          press: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CourseDetailsScreen(
+                                        course: demoCourses[index])));
+                          },
+                        ))
               ],
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
+import 'package:kuziem/screens/mobile/course_details/course_details_screen.dart';
 import 'package:kuziem/size_config.dart';
 import '../../../../model/Course.dart';
 import 'course_card_small.dart';
@@ -40,8 +41,18 @@ class Body extends StatelessWidget {
                         children: [
                           ...List.generate(
                               demoCourses.length,
-                              (index) =>
-                                  CoureCardSmall(course: demoCourses[index]))
+                              (index) => CoureCardSmall(
+                                    course: demoCourses[index],
+                                    press: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CourseDetailsScreen(
+                                                      course:
+                                                          demoCourses[index])));
+                                    },
+                                  ))
                         ]),
                   ],
                 ),

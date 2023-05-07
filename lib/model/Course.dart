@@ -79,11 +79,7 @@ List<Course> demoCourses = [
       book: "h5ttt/bbok.com",
       duration: "3 Weeks",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
-      classes: [
-        "classid1"
-            "classid2"
-            "classid3"
-      ],
+      classes: ["classid1", "class002", "class002"],
       about:
           "In these course you will learn the basics of Data Analysis using PYTHON Programming. The all in one guid that leads to understanding how data and machines works",
       level: "Basics to Advanced",
@@ -97,22 +93,18 @@ List<Course> demoCourses = [
       price: 12000,
       images: [
         "assets/images/digitalpainting1.jpeg",
-        "assets/images/digitalpainting2.jpeg",
-        "assets/images/digitalpainting3.jpeg",
-        "assets/images/digitalpainting4.jpeg",
-        "assets/images/digitalpainting5.jpeg",
-        "assets/images/digitalpainting6.jpeg",
+        "assets/images/digitalpainting2.jpg",
+        "assets/images/digitalpainting3.jpg",
+        "assets/images/digitalpainting4.jpg",
+        "assets/images/digitalpainting5.jpg",
+        "assets/images/digitalpainting6.jpg",
         "assets/images/digitalpainting7.jpeg",
       ],
       creator: "Joel Odufu",
       book: "h5ttt/bbok.com",
       duration: "2 months",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
-      classes: [
-        "classid1"
-            "classid2"
-            "classid3"
-      ],
+      classes: ["classid1", "class002", "class002"],
       about:
           "In these course you will learn the basics of Data Analysis using PYTHON Programming. The all in one guid that leads to understanding how data and machines works",
       level: "Basics to Advanced",
@@ -138,11 +130,7 @@ List<Course> demoCourses = [
       book: "h5ttt/bbok.com",
       duration: "2 months",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
-      classes: [
-        "classid1"
-            "classid2"
-            "classid3"
-      ],
+      classes: ["classid1", "class002", "class002"],
       about:
           "In these course you will learn the basics of Data Analysis using Dart Programming. The all in one guid that leads to understanding how data and machines works",
       level: "Basics to Advanced",
@@ -166,11 +154,7 @@ List<Course> demoCourses = [
       book: "h5ttt/bbok.com",
       duration: "2 months",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
-      classes: [
-        "classid1"
-            "classid2"
-            "classid3"
-      ],
+      classes: ["classid1", "class002", "class002"],
       about:
           "In these course you will learn the basics of Data Analysis using PYTHON Programming. The all in one guid that leads to understanding how data and machines works",
       level: "Basics to Advanced",

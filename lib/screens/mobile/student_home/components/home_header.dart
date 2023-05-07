@@ -24,13 +24,6 @@ class HomeHeader extends StatelessWidget {
               //go to the cart page
             },
           ),
-          IconButtonWithCount(
-            icon: Icons.notifications_none_outlined,
-            numberOfItems: 5,
-            press: () {
-              //return notification page
-            },
-          ),
         ],
       ),
     );
