@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/enums.dart';
 
-import '../components/bottom_navigation_bar_main.dart';
 import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
 import 'components/body.dart';
