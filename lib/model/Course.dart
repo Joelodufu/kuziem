@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-
 class Course {
+  final bool isDone;
+
   final double price;
   final String title,
       id,
@@ -12,16 +12,22 @@ class Course {
       certification,
       category,
       affiliation;
-  final List<String> images, colaborators, classes, requirements;
+  final List<String> images,
+      colaborators,
+      classes,
+      requirements,
+      registeredStudents;
 
   Course(
       {required this.title,
       required this.id,
+      required this.registeredStudents,
       required this.images,
       required this.creator,
       required this.book,
       required this.duration,
       required this.colaborators,
+      required this.isDone,
       required this.classes,
       required this.about,
       required this.price,
@@ -38,6 +44,18 @@ List<Course> demoCourses = [
       id: "0001",
       category: "digital skills",
       price: 12000,
+      registeredStudents: [
+        "studenet 1",
+        "studenet 2",
+        "studenet 3",
+        "studenet 4",
+        "studenet 5",
+        "studenet 6",
+        "studenet 7",
+        "studenet 8",
+        "studenet 9"
+      ],
+      isDone: true,
       images: [
         "assets/images/dataanalysis1.jpg",
         "assets/images/dataanalysis2.jpeg",
@@ -46,7 +64,7 @@ List<Course> demoCourses = [
         "assets/images/dataanalysis5.jpg",
         "assets/images/dataanalysis7.jpeg"
       ],
-      creator: "Joel Odufu",
+      creator: "Sunday Agbenu",
       book: "h5ttt/bbok.com",
       duration: "2 months",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
@@ -66,6 +84,15 @@ List<Course> demoCourses = [
       id: "0002",
       price: 12000,
       category: "engineering",
+      registeredStudents: [
+        "studenet 1",
+        "studenet 2",
+        "studenet 3",
+        "studenet 4",
+        "studenet 5",
+        "studenet 6",
+      ],
+      isDone: true,
       images: [
         "assets/images/electronictech1.jpeg",
         "assets/images/electronictech2.jpeg",
@@ -75,7 +102,7 @@ List<Course> demoCourses = [
         "assets/images/electronictech6.jpg",
         "assets/images/electronictech7.jpeg",
       ],
-      creator: "Joel Odufu",
+      creator: "Sunday Agbenu",
       book: "h5ttt/bbok.com",
       duration: "3 Weeks",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
@@ -89,7 +116,9 @@ List<Course> demoCourses = [
   Course(
       title: "Digital Painting",
       id: "0003",
+      isDone: true,
       category: "digital skills",
+      registeredStudents: ["studenet 1", "studenet 2", "studenet 3"],
       price: 12000,
       images: [
         "assets/images/digitalpainting1.jpeg",
@@ -115,6 +144,14 @@ List<Course> demoCourses = [
       title: "Android App Development",
       id: "0004",
       category: "digital skills",
+      registeredStudents: [
+        "studenet 1",
+        "studenet 2",
+        "studenet 3",
+        "studenet 4",
+        "studenet 5",
+      ],
+      isDone: true,
       price: 12000,
       images: [
         "assets/images/androiddev.jpg",
@@ -141,6 +178,26 @@ List<Course> demoCourses = [
       title: "Introduction to data analysis",
       id: "0001",
       category: "digital skills",
+      registeredStudents: [
+        "studenet 1",
+        "studenet 2",
+        "studenet 3",
+        "studenet 4",
+        "studenet 5",
+        "studenet 6",
+        "studenet 7",
+        "studenet 8",
+        "studenet 1",
+        "studenet 2",
+        "studenet 3",
+        "studenet 4",
+        "studenet 5",
+        "studenet 6",
+        "studenet 7",
+        "studenet 8",
+        "studenet 9"
+      ],
+      isDone: false,
       price: 12000,
       images: [
         "assets/images/dataanalysis1.jpg",

@@ -59,11 +59,13 @@ class Body extends StatelessWidget {
                           children: [
                             ...List.generate(
                                 myCOurses.length,
-                                (index) => const MyCourseCard(
-                                    title: "Introductions",
-                                    image: "assets/images/androiddev5.jpeg",
-                                    isDone: true,
-                                    students: 20))
+                                (index) => MyCourseCard(
+                                    title: myCOurses[index].title,
+                                    image: myCOurses[index].images[0],
+                                    isDone: myCOurses[index].isDone,
+                                    students: myCOurses[index]
+                                        .registeredStudents
+                                        .length))
                           ],
                         )
                       ],
