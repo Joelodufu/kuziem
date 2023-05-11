@@ -62,9 +62,9 @@ class MyCourseCard extends StatelessWidget {
                     width: 40,
                     decoration: BoxDecoration(
                         color: students < 5
-                            ? Color.fromARGB(255, 124, 34, 28)
+                            ? const Color.fromARGB(255, 124, 34, 28)
                             : students < 10
-                                ? Color.fromARGB(255, 93, 117, 48)
+                                ? const Color.fromARGB(255, 93, 117, 48)
                                 : const Color.fromARGB(255, 31, 121, 34),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(5))),

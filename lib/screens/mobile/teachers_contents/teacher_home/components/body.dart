@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../model/Course.dart';
 import '../../components/my_course_card.dart';
 import '../../components/profile_circular_image.dart';
+import '../../my_courses_list/my_courses_list_screen.dart';
 import 'my_student_banner.dart';
 
 class Body extends StatelessWidget {
@@ -44,13 +45,30 @@ class Body extends StatelessWidget {
                     child: Column(
                       children: [
                         Row(
-                          children: const [
-                            Padding(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Text(
                                 "My Coureses",
                                 style: TextStyle(
                                     color: Colors.black, fontSize: 17),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, MyCoursesListScreen.routeName);
+                              },
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  "View More",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 20, 88, 143),
+                                    fontSize: 17,
+                                  ),
+                                ),
                               ),
                             ),
                           ],

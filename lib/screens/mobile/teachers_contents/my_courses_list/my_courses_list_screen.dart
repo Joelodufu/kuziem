@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:kuziem/screens/mobile/components/icon_btn_with_count.dart';
+import './components/body.dart';
 
 import '../../../../enums.dart';
 import '../../components/costum_nav_bar.dart';
+import '../../components/icon_btn_with_count.dart';
 import '../../components/navigator_main.dart';
-import './components/body.dart';
 
-class TeacherHomeScreen extends StatelessWidget {
-  static String routeName = "/teacher_home_screen";
-  const TeacherHomeScreen({super.key});
+class MyCoursesListScreen extends StatelessWidget {
+  const MyCoursesListScreen({super.key});
+  static String routeName = "/my_courses_list";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Teachers Dashboard"),
+        title: const Text("My Courses"),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),

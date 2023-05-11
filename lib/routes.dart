@@ -10,6 +10,7 @@ import 'package:kuziem/screens/mobile/questions/question_screen.dart';
 import 'package:kuziem/screens/mobile/settings/settings_screen.dart';
 import 'package:kuziem/screens/mobile/splash/splashscreenpage.dart';
 import 'package:kuziem/screens/mobile/student_home/student_home_screen.dart';
+import 'package:kuziem/screens/mobile/teachers_contents/my_courses_list/my_courses_list_screen.dart';
 import 'package:kuziem/screens/mobile/teachers_contents/register_form/register_form_screen.dart';
 import 'package:kuziem/screens/mobile/teachers_contents/register_splash/register_splash_screen.dart';
 import 'package:kuziem/screens/mobile/teachers_contents/teacher_home/teacher_home_screen.dart';
@@ -28,5 +29,6 @@ final Map<String, WidgetBuilder> routes = {
   SettingsScreen.routeName: (context) => const SettingsScreen(),
   RegisterSplashScreen.routeName: (context) => const RegisterSplashScreen(),
   RegisterFormScreen.routeName: (context) => const RegisterFormScreen(),
-  TeacherHomeScreen.routeName: (context) => const TeacherHomeScreen()
+  TeacherHomeScreen.routeName: (context) => const TeacherHomeScreen(),
+  MyCoursesListScreen.routeName:(context) => const MyCoursesListScreen()
 };
