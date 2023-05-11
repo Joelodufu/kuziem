@@ -73,7 +73,7 @@ List<Course> demoCourses = [
         "assets/images/electronictech4.jpeg",
         "assets/images/electronictech5.jpeg",
         "assets/images/electronictech6.jpg",
-        "assets/images/electronictech7.jpeg",
+        "assets/images/electronictech7.jpg",
       ],
       creator: "Joel Odufu",
       book: "h5ttt/bbok.com",

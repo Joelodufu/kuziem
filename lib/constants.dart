@@ -13,7 +13,7 @@ const kTabwidth = 760;
 const kPrimaryGradient = LinearGradient(colors: [
   Color.fromARGB(255, 17, 117, 208),
   Color.fromARGB(255, 0, 54, 103),
-], begin: Alignment.topCenter, end: Alignment.bottomCenter);
+], begin: Alignment.bottomCenter, end: Alignment.topCenter);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 

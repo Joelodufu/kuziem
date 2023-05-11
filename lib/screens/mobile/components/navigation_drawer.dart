@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../courses/courses_screen.dart';
-import '../questions/question_screen.dart';
 import '../student_home/student_home_screen.dart';
 
 class NavigationDrawer extends StatelessWidget {
@@ -47,12 +46,12 @@ Widget buildMenuItems(BuildContext context) => Container(
               Navigator.pushNamed(context, CoursesScreen.routeName);
             },
           ),
-          const Divider(),
+          Divider(),
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text("Settings"),
             onTap: () {
-              Navigator.pushNamed(context, QuestionScreen.routeName);
+              Navigator.pushNamed(context, CoursesScreen.routeName);
             },
           ),
         ],
