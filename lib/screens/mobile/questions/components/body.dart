@@ -3,6 +3,8 @@ import 'package:grouped_list/grouped_list.dart';
 import 'package:kuziem/constants.dart';
 import 'package:kuziem/model/Message.dart';
 
+import '../../question_details/question_details_screen.dart';
+
 class Body extends StatefulWidget {
   const Body({super.key});
 
@@ -30,52 +32,63 @@ class _BodyState extends State<Body> {
             elevation: 4,
             child: Padding(
               padding: const EdgeInsets.all(12),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    message.author,
-                    style: const TextStyle(fontSize: 15, color: kPrimaryColor),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(message.text),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Divider(),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.visibility,
-                            color: Colors.grey,
-                          ),
-                          Text("${message.replies.length}")
-                        ],
-                      ),
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.watch,
-                            color: Colors.red,
-                          ),
-                          Text(
-                            "09",
-                            style: TextStyle(color: kPrimaryColor),
-                          )
-                        ],
-                      ),
-                    ],
-                  )
-                ],
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => QuestionDetailsScreen(
+                                message: message,
+                              )));
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      message.author,
+                      style:
+                          const TextStyle(fontSize: 15, color: kPrimaryColor),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(message.text),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Divider(),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.visibility,
+                              color: Colors.grey,
+                            ),
+                            Text("${message.replies.length}")
+                          ],
+                        ),
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.watch,
+                              color: Colors.red,
+                            ),
+                            Text(
+                              "09",
+                              style: TextStyle(color: kPrimaryColor),
+                            )
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),

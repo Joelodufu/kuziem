@@ -3,6 +3,7 @@ import 'package:kuziem/screens/mobile/complete_profile/complete_profile_screen.d
 import 'package:kuziem/screens/mobile/courses/courses_screen.dart';
 import 'package:kuziem/screens/mobile/forgot_password/forgot_password_screen.dart';
 import 'package:kuziem/screens/mobile/home_screen/home_screen.dart';
+import 'package:kuziem/screens/mobile/kuzbot/kuzbot_screen.dart';
 import 'package:kuziem/screens/mobile/login/login.dart';
 import 'package:kuziem/screens/mobile/login_success/login_success_screen.dart';
 import 'package:kuziem/screens/mobile/profile/profile_screen.dart';
@@ -30,5 +31,6 @@ final Map<String, WidgetBuilder> routes = {
   RegisterSplashScreen.routeName: (context) => const RegisterSplashScreen(),
   RegisterFormScreen.routeName: (context) => const RegisterFormScreen(),
   TeacherHomeScreen.routeName: (context) => const TeacherHomeScreen(),
-  MyCoursesListScreen.routeName:(context) => const MyCoursesListScreen()
+  MyCoursesListScreen.routeName:(context) => const MyCoursesListScreen(),
+  KuzBotScreen.routeName:(context)=>const KuzBotScreen()
 };

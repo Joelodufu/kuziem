@@ -20,7 +20,6 @@ class QuestionDetailsScreen extends StatelessWidget {
         body: Body(
           message: message,
         ),
-        drawer: const NavigatorMain(),
         bottomNavigationBar: const CostumBottomNavbar(
           selectedMenu: MenuState.home,
         ));
