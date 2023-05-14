@@ -97,6 +97,26 @@ class _BodyState extends State<Body> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
           child: TextField(
             decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
                 contentPadding: EdgeInsets.all(12),
                 suffixIcon: Icon(Icons.arrow_forward_ios),
                 hintText: "Type your question here..."),
