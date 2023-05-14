@@ -27,7 +27,6 @@ class MyCoursesListScreen extends StatelessWidget {
         ],
       ),
       body: Body(),
-      drawer: const NavigatorMain(),
       bottomNavigationBar: const CostumBottomNavbar(
         selectedMenu: MenuState.home,
       ),

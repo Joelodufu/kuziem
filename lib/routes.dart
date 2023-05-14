@@ -32,5 +32,5 @@ final Map<String, WidgetBuilder> routes = {
   RegisterFormScreen.routeName: (context) => const RegisterFormScreen(),
   TeacherHomeScreen.routeName: (context) => const TeacherHomeScreen(),
   MyCoursesListScreen.routeName:(context) => const MyCoursesListScreen(),
-  KuzBotScreen.routeName:(context)=>const KuzBotScreen()
+  KuzBotScreen.routeName:(context)=>const KuzBotScreen(),
 };

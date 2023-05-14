@@ -2,6 +2,7 @@ class Course {
   final bool isDone;
 
   final double price;
+  final DateTime startTime;
   final String title,
       id,
       creator,
@@ -13,14 +14,12 @@ class Course {
       certification,
       category,
       affiliation;
-  final List<String> images,
-      colaborators,
-      classes,
-      requirements,
-      registeredStudents;
+  final List<String> images, colaborators, classes, requirements;
+  final List<Map<String, String>> registeredStudents;
 
   Course(
-      {required this.title,
+      {required this.startTime,
+      required this.title,
       required this.introVideo,
       required this.id,
       required this.registeredStudents,
@@ -44,19 +43,36 @@ List<Course> demoCourses = [
   Course(
       title: "Introduction to data analysis",
       id: "0001",
+      startTime: DateTime.parse("2023-04-05"),
       introVideo: "https://www.youtube.com/watch?v=_g5roKHj95o",
       category: "digital skills",
       price: 12000,
       registeredStudents: [
-        "studenet 1",
-        "studenet 2",
-        "studenet 3",
-        "studenet 4",
-        "studenet 5",
-        "studenet 6",
-        "studenet 7",
-        "studenet 8",
-        "studenet 9"
+        {
+          "id": "oo1",
+          "name": "Anderson Jonhn",
+          "image": "assets/images/ekowoicho.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/profile.jpeg"
+        },
+        {
+          "id": "003",
+          "name": "Preciouse Afolabi",
+          "image": "assets/images/joel1.JPG"
+        },
+        {
+          "id": "004",
+          "name": "Alade Adeniyi ",
+          "image": "assets/images/joel3.JPG"
+        },
+        {
+          "id": "005",
+          "name": "Joshua Adegbite",
+          "image": "assets/images/ekowoicho.jpg"
+        },
       ],
       isDone: true,
       images: [
@@ -84,17 +100,37 @@ List<Course> demoCourses = [
       requirements: ["Laptop", "Internet Service", "Webcam", "Notebook"]),
   Course(
       title: "Electronic Technology",
+      startTime: DateTime.parse("2023-04-05"),
       id: "0002",
       price: 12000,
       category: "engineering",
       introVideo: "https://www.youtube.com/watch?v=XbLriBntePk",
       registeredStudents: [
-        "studenet 1",
-        "studenet 2",
-        "studenet 3",
-        "studenet 4",
-        "studenet 5",
-        "studenet 6",
+        {
+          "id": "oo1",
+          "name": "Anderson Jonhn",
+          "image": "assets/images/joel2.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/joellee.jpg"
+        },
+        {
+          "id": "003",
+          "name": "Preciouse Afolabi",
+          "image": "assets/images/joel1.JPG"
+        },
+        {
+          "id": "004",
+          "name": "Alade Adeniyi ",
+          "image": "assets/images/joel3.JPG"
+        },
+        {
+          "id": "005",
+          "name": "Joshua Adegbite",
+          "image": "assets/images/ekowoicho.jpg"
+        },
       ],
       isDone: true,
       images: [
@@ -119,12 +155,59 @@ List<Course> demoCourses = [
       requirements: ["Laptop", "Internet Service", "Webcam", "Notebook"]),
   Course(
       title: "Digital Painting",
+      startTime: DateTime.parse("2023-04-05"),
       id: "0003",
       isDone: true,
       category: "digital skills",
       introVideo:
           "https://www.youtube.com/watch?v=WUZ5V2aWJzg&list=PLtG4P3lq8RHHBiU_VqcY_L9T2iFDeCUJH",
-      registeredStudents: ["studenet 1", "studenet 2", "studenet 3"],
+      registeredStudents: [
+        {
+          "id": "oo1",
+          "name": "Anderson Jonhn",
+          "image": "assets/images/joel2.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/joellee.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/joellee.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/joellee.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/joellee.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/joellee.jpg"
+        },
+        {
+          "id": "003",
+          "name": "Preciouse Afolabi",
+          "image": "assets/images/joel1.JPG"
+        },
+        {
+          "id": "004",
+          "name": "Alade Adeniyi ",
+          "image": "assets/images/joel3.JPG"
+        },
+        {
+          "id": "005",
+          "name": "Joshua Adegbite",
+          "image": "assets/images/ekowoicho.jpg"
+        },
+      ],
       price: 12000,
       images: [
         "assets/images/digitalpainting1.jpeg",
@@ -148,15 +231,36 @@ List<Course> demoCourses = [
       requirements: ["Laptop", "Internet Service", "Webcam", "Notebook"]),
   Course(
       title: "Android App Development",
+      startTime: DateTime.parse("2023-04-05"),
       id: "0004",
       category: "digital skills",
       introVideo: "https://www.youtube.com/watch?v=AhUL5tHF3uc",
       registeredStudents: [
-        "studenet 1",
-        "studenet 2",
-        "studenet 3",
-        "studenet 4",
-        "studenet 5",
+        {
+          "id": "oo1",
+          "name": "Anderson Jonhn",
+          "image": "assets/images/joel2.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/joellee.jpg"
+        },
+        {
+          "id": "003",
+          "name": "Preciouse Afolabi",
+          "image": "assets/images/joel1.JPG"
+        },
+        {
+          "id": "004",
+          "name": "Alade Adeniyi ",
+          "image": "assets/images/joel3.JPG"
+        },
+        {
+          "id": "005",
+          "name": "Joshua Adegbite",
+          "image": "assets/images/ekowoicho.jpg"
+        },
       ],
       isDone: true,
       price: 12000,
@@ -183,27 +287,56 @@ List<Course> demoCourses = [
       requirements: ["Laptop", "Internet Service", "Webcam", "Notebook"]),
   Course(
       title: "Introduction to data analysis",
+      startTime: DateTime.parse("2023-04-05"),
       id: "0001",
       category: "digital skills",
       introVideo: "https://www.youtube.com/watch?v=SfE3aO3LWi0",
       registeredStudents: [
-        "studenet 1",
-        "studenet 2",
-        "studenet 3",
-        "studenet 4",
-        "studenet 5",
-        "studenet 6",
-        "studenet 7",
-        "studenet 8",
-        "studenet 1",
-        "studenet 2",
-        "studenet 3",
-        "studenet 4",
-        "studenet 5",
-        "studenet 6",
-        "studenet 7",
-        "studenet 8",
-        "studenet 9"
+        {
+          "id": "oo1",
+          "name": "Anderson Jonhn",
+          "image": "assets/images/joel2.jpg"
+        },
+        {
+          "id": "002",
+          "name": "Joseph Abraham",
+          "image": "assets/images/joellee.jpg"
+        },
+        {
+          "id": "003",
+          "name": "Preciouse Afolabi",
+          "image": "assets/images/joel1.JPG"
+        },
+        {
+          "id": "004",
+          "name": "Alade Adeniyi ",
+          "image": "assets/images/joel3.JPG"
+        },
+        {
+          "id": "003",
+          "name": "Preciouse Afolabi",
+          "image": "assets/images/joel1.JPG"
+        },
+        {
+          "id": "004",
+          "name": "Alade Adeniyi ",
+          "image": "assets/images/joel3.JPG"
+        },
+        {
+          "id": "003",
+          "name": "Preciouse Afolabi",
+          "image": "assets/images/joel1.JPG"
+        },
+        {
+          "id": "004",
+          "name": "Alade Adeniyi ",
+          "image": "assets/images/joel3.JPG"
+        },
+        {
+          "id": "005",
+          "name": "Joshua Adegbite",
+          "image": "assets/images/ekowoicho.jpg"
+        },
       ],
       isDone: false,
       price: 12000,
