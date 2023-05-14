@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Message {
   final String author, text, replyTo;
   final DateTime startTime;
-  final List<Map> replies; //iD for replies
+  final List<Map<String, String>> replies; //iD for replies
   Message(
       {required this.author,
       required this.text,
@@ -30,6 +30,21 @@ List<Message> demoMessages = [
               "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
         },
         {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
           "user": "Joshua Alodugo",
           "message":
               "Can someone tell me how to make this payment without going to the bank?"
@@ -37,7 +52,7 @@ List<Message> demoMessages = [
         {
           "user": "Dayo Olujobi",
           "message":
-              "Why is the ‘S’ in sustain bad to call while voicing? In the vocal class Justine had last week he spoke about it. I have tried google, no solutions."
+              "Why is the 'S' in sustain bad to call while voicing? In the vocal class Justine had last week he spoke about it. I have tried google, no solutions."
         },
       ],
       replyTo: "Joel Lee"),
@@ -51,7 +66,47 @@ List<Message> demoMessages = [
           "user": "emmanuel john",
           "message":
               "Joel sdsdjl sdjnlsdlns sdnklsndklls sdmlsmkdlmskd sdkmklsmdlmkmsd sdksmdlmsmkmsd sdkmsldmklkmsldmlmksd sdmklmsdlmkmsd sdlkmklsdmkd"
-        }
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
       ],
       replyTo: "Joel Lee"),
   Message(
@@ -64,7 +119,42 @@ List<Message> demoMessages = [
           "user": "Simon Peters",
           "message":
               "Joel sdsdjl sdjnlsdlns sdnklsndklls sdmlsmkdlmskd sdkmklsmdlmkmsd sdksmdlmsmkmsd sdkmsldmklkmsldmlmksd sdmklmsdlmkmsd sdlkmklsdmkd"
-        }
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
       ],
       replyTo: "Joel Lee"),
   Message(
@@ -77,7 +167,42 @@ List<Message> demoMessages = [
           "user": "Joseph James",
           "message":
               "Joel sdsdjl sdjnlsdlns sdnklsndklls sdmlsmkdlmskd sdkmklsmdlmkmsd sdksmdlmsmkmsd sdkmsldmklkmsldmlmksd sdmklmsdlmkmsd sdlkmklsdmkd"
-        }
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
+        {
+          "user": "Adams Adamu",
+          "message":
+              "How do you make a sandwich that has both agbado and casava with a little bit of bole inside. considering the townhall meeting?"
+        },
       ],
       replyTo: "Joel Lee"),
   Message(
@@ -89,7 +214,7 @@ List<Message> demoMessages = [
         {
           "user": "Emmanuel James",
           "message":
-              "Joel sdsdjl sdjnlsdlns sdnklsndklls sdmlsmkdlmskd sdkmklsmdlmkmsd sdksmdlmsmkmsd sdkmsldmklkmsldmlmksd sdmklmsdlmkmsd sdlkmklsdmkd"
+              "I would rather take the view from the top were the refference point was taken from, how could we do this without a guidiance effort"
         }
       ],
       replyTo: "Joel Lee"),
