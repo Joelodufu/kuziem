@@ -184,14 +184,16 @@ class NextCourse extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(7.0),
                 child: Row(
                   children: const [
-                    Text(
-                      "Introduction\nto Digital\nPainting",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
+                    Expanded(
+                      child: Text(
+                        "Introduction to Digital Painting",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                        ),
                       ),
                     )
                   ],

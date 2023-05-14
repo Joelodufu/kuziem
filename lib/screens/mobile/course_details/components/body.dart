@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
 import 'package:kuziem/size_config.dart';
+import 'package:video_player/video_player.dart';
 
 import '../../../../model/Course.dart';
 import '../../components/rounded_button.dart';
@@ -16,8 +17,25 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  late VideoPlayerController _controller;
+  late Future<void> _initializeVideoPlayerFuture;
   @override
+  void initState() {
+    _controller = VideoPlayerController.network(widget.course.introVideo);
+    _initializeVideoPlayerFuture = _controller.initialize();
+    _controller.setLooping(true);
+    _controller.setVolume(1.0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   int index = 0;
+  bool introVideo = false;
 
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -26,20 +44,7 @@ class _BodyState extends State<Body> {
         SizedBox(
           height: size.height * 0.8,
           child: Stack(children: [
-            Container(
-              padding: const EdgeInsets.all(0),
-              clipBehavior: Clip.hardEdge,
-              margin: EdgeInsets.only(top: size.height * 0.02),
-              height: size.height * 0.4,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(25)),
-              ),
-              child: Image(
-                image: AssetImage(widget.course
-                    .images[Random().nextInt(widget.course.images.length)]),
-                fit: BoxFit.fitHeight,
-              ),
-            ),
+            introVideo ? buildVideo(size) : buildCourseImages(size),
             Container(
               margin: EdgeInsets.only(top: size.height * 0.3),
               height: getProportionalScreenHeight(500),
@@ -165,9 +170,90 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
+            Positioned(
+              top: size.height * 0.27,
+              left: 10,
+              child: Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          blurRadius: 4,
+                          spreadRadius: 1)
+                    ]),
+                child: introVideo
+                    ? InkWell(
+                        onTap: () {
+                          setState(() {
+                            introVideo = !introVideo;
+                          });
+                        },
+                        child: const Icon(
+                          Icons.theaters,
+                        ),
+                      )
+                    : InkWell(
+                        onTap: () {
+                          setState(() {
+                            introVideo = !introVideo;
+                          });
+                        },
+                        child: const Icon(
+                          Icons.burst_mode,
+                        ),
+                      ),
+              ),
+            ),
           ]),
         )
       ],
+    );
+  }
+
+  Container buildVideo(Size size) {
+    
+    return Container(
+        padding: const EdgeInsets.all(0),
+        clipBehavior: Clip.hardEdge,
+        margin: EdgeInsets.only(top: size.height * 0.02),
+        height: size.height * 0.4,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(25)),
+        ),
+        child: FutureBuilder(future: _initializeVideoPlayerFuture,
+          builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            _controller.play();
+            return AspectRatio(
+              aspectRatio: _controller.value.aspectRatio,
+              child: VideoPlayer(_controller),
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        }));
+  }
+
+  Container buildCourseImages(Size size) {
+    return Container(
+      padding: const EdgeInsets.all(0),
+      clipBehavior: Clip.hardEdge,
+      margin: EdgeInsets.only(top: size.height * 0.02),
+      height: size.height * 0.4,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(25)),
+      ),
+      child: Image(
+        image: AssetImage(widget
+            .course.images[Random().nextInt(widget.course.images.length)]),
+        fit: BoxFit.fitHeight,
+      ),
     );
   }
 
@@ -182,7 +268,7 @@ class _BodyState extends State<Body> {
 
   Text buildTextPropertiesOfCOurses() {
     return Text(
-      index == 0
+      index == 0 
           ? widget.course.about
           : index == 1
               ? widget.course.level
@@ -232,7 +318,7 @@ class MenuIcon extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        padding: EdgeInsets.all(4),
+        padding: const EdgeInsets.all(4),
         height: isActive ? 40 : 30,
         width: isActive ? 40 : 30,
         decoration: BoxDecoration(

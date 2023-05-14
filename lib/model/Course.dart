@@ -7,6 +7,7 @@ class Course {
       creator,
       book,
       duration,
+      introVideo,
       about,
       level,
       certification,
@@ -20,6 +21,7 @@ class Course {
 
   Course(
       {required this.title,
+      required this.introVideo,
       required this.id,
       required this.registeredStudents,
       required this.images,
@@ -42,6 +44,7 @@ List<Course> demoCourses = [
   Course(
       title: "Introduction to data analysis",
       id: "0001",
+      introVideo: "https://www.youtube.com/watch?v=_g5roKHj95o",
       category: "digital skills",
       price: 12000,
       registeredStudents: [
@@ -84,6 +87,7 @@ List<Course> demoCourses = [
       id: "0002",
       price: 12000,
       category: "engineering",
+      introVideo: "https://www.youtube.com/watch?v=XbLriBntePk",
       registeredStudents: [
         "studenet 1",
         "studenet 2",
@@ -118,6 +122,8 @@ List<Course> demoCourses = [
       id: "0003",
       isDone: true,
       category: "digital skills",
+      introVideo:
+          "https://www.youtube.com/watch?v=WUZ5V2aWJzg&list=PLtG4P3lq8RHHBiU_VqcY_L9T2iFDeCUJH",
       registeredStudents: ["studenet 1", "studenet 2", "studenet 3"],
       price: 12000,
       images: [
@@ -144,6 +150,7 @@ List<Course> demoCourses = [
       title: "Android App Development",
       id: "0004",
       category: "digital skills",
+      introVideo: "https://www.youtube.com/watch?v=AhUL5tHF3uc",
       registeredStudents: [
         "studenet 1",
         "studenet 2",
@@ -178,6 +185,7 @@ List<Course> demoCourses = [
       title: "Introduction to data analysis",
       id: "0001",
       category: "digital skills",
+      introVideo: "https://www.youtube.com/watch?v=SfE3aO3LWi0",
       registeredStudents: [
         "studenet 1",
         "studenet 2",
