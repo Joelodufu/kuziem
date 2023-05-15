@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
 import 'package:kuziem/screens/mobile/student_home/components/body.dart';
 import '../../../enums.dart';
+import '../../../size_config.dart';
+import '../cart/cart_screen.dart';
 import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
 import '../kuzbot/kuzbot_screen.dart';
@@ -21,8 +23,10 @@ class StudentHomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: IconButtonWithCount(
-              icon: Icons.notification_add,
-              press: () {},
+              icon: Icons.local_mall_outlined,
+              press: () {
+                Navigator.pushNamed(context, CartScreen.routeName);
+              },
               numberOfItems: 10,
             ),
           )
@@ -73,8 +77,8 @@ class StudentHomeScreen extends StatelessWidget {
                           color:
                               Color.fromARGB(255, 20, 48, 85).withOpacity(.05))
                     ]),
-                    child: const Image(
-                        width: 250,
+                    child: Image(
+                        width: getProportionalScreenWidth(240),
                         image: AssetImage(
                           "assets/images/kuzbotlogo.png",
                         )),
@@ -100,7 +104,7 @@ class StudentHomeScreen extends StatelessWidget {
                               Color.fromARGB(255, 20, 48, 85).withOpacity(.05))
                     ]),
                     child: Image(
-                        width: 250,
+                        width: getProportionalScreenWidth(240),
                         image: AssetImage(
                           "assets/images/comunityquestion.png",
                         )),

@@ -13,6 +13,12 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  var msgController = TextEditingController();
+
+  void clearText() {
+    msgController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -96,6 +102,7 @@ class _BodyState extends State<Body> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
           child: TextField(
+            controller: msgController,
             decoration: const InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(0)),

@@ -6,6 +6,7 @@ import 'package:kuziem/size_config.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../model/Course.dart';
+import '../../cart/cart_screen.dart';
 import '../../components/rounded_button.dart';
 
 class Body extends StatefulWidget {
@@ -21,16 +22,16 @@ class _BodyState extends State<Body> {
   late Future<void> _initializeVideoPlayerFuture;
   @override
   void initState() {
-    _controller = VideoPlayerController.network(widget.course.introVideo);
-    _initializeVideoPlayerFuture = _controller.initialize();
-    _controller.setLooping(true);
-    _controller.setVolume(1.0);
-    super.initState();
+    //_controller = VideoPlayerController.network(widget.course.introVideo);
+    //_initializeVideoPlayerFuture = _controller.initialize();
+    // _controller.setLooping(true);
+    // _controller.setVolume(1.0);
+    // super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    // _controller.dispose();
     super.dispose();
   }
 
@@ -44,7 +45,8 @@ class _BodyState extends State<Body> {
         SizedBox(
           height: size.height * 0.8,
           child: Stack(children: [
-            introVideo ? buildVideo(size) : buildCourseImages(size),
+            //introVideo ? buildVideo(size) :
+            buildCourseImages(size),
             Container(
               margin: EdgeInsets.only(top: size.height * 0.3),
               height: getProportionalScreenHeight(500),
@@ -151,8 +153,8 @@ class _BodyState extends State<Body> {
                                       children: [
                                         ...List.generate(
                                             widget.course.classes.length,
-                                            (index) => Text(
-                                                widget.course.classes[index]))
+                                            (index) => Text(widget
+                                                .course.classes[index].title))
                                       ],
                                     )
                                   : buildTextPropertiesOfCOurses(),
@@ -163,8 +165,10 @@ class _BodyState extends State<Body> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: RoundButton(
-                      press: () {},
-                      text: 'Register',
+                      press: () {
+                        Navigator.pushNamed(context, CartScreen.routeName);
+                      },
+                      text: 'Add to Cart',
                     ),
                   )
                 ],
@@ -189,7 +193,7 @@ class _BodyState extends State<Body> {
                     ? InkWell(
                         onTap: () {
                           setState(() {
-                            introVideo = !introVideo;
+                            // introVideo = !introVideo;
                           });
                         },
                         child: const Icon(
@@ -199,7 +203,7 @@ class _BodyState extends State<Body> {
                     : InkWell(
                         onTap: () {
                           setState(() {
-                            introVideo = !introVideo;
+                            // introVideo = !introVideo;
                           });
                         },
                         child: const Icon(
@@ -215,7 +219,6 @@ class _BodyState extends State<Body> {
   }
 
   Container buildVideo(Size size) {
-    
     return Container(
         padding: const EdgeInsets.all(0),
         clipBehavior: Clip.hardEdge,
@@ -224,20 +227,21 @@ class _BodyState extends State<Body> {
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(topLeft: Radius.circular(25)),
         ),
-        child: FutureBuilder(future: _initializeVideoPlayerFuture,
-          builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            _controller.play();
-            return AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        }));
+        child: FutureBuilder(
+            future: _initializeVideoPlayerFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                _controller.play();
+                return AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            }));
   }
 
   Container buildCourseImages(Size size) {
@@ -268,7 +272,7 @@ class _BodyState extends State<Body> {
 
   Text buildTextPropertiesOfCOurses() {
     return Text(
-      index == 0 
+      index == 0
           ? widget.course.about
           : index == 1
               ? widget.course.level

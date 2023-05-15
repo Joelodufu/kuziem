@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../size_config.dart';
+import '../../cart/cart_screen.dart';
 import 'icon_btn_with_count.dart';
 import 'search_field.dart';
 
@@ -22,6 +23,7 @@ class HomeHeader extends StatelessWidget {
             numberOfItems: 2,
             press: () {
               //go to the cart page
+              Navigator.pushNamed(context, CartScreen.routeName);
             },
           ),
         ],

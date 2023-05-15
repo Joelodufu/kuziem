@@ -1,3 +1,5 @@
+import "ClassModel.dart";
+
 class Course {
   final bool isDone;
 
@@ -14,8 +16,9 @@ class Course {
       certification,
       category,
       affiliation;
-  final List<String> images, colaborators, classes, requirements;
+  final List<String> images, colaborators, requirements;
   final List<Map<String, String>> registeredStudents;
+  final List<ClassModel> classes;
 
   Course(
       {required this.startTime,
@@ -88,9 +91,11 @@ List<Course> demoCourses = [
       duration: "2 months",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
       classes: [
-        "classid1"
-            "classid2"
-            "classid3"
+        demoCLasses[0],
+        demoCLasses[1],
+        demoCLasses[2],
+        demoCLasses[3],
+        demoCLasses[4],
       ],
       about:
           "In these course you will learn the basics of Data Analysis using PYTHON Programming. The all in one guid that leads to understanding how data and machines works",
@@ -146,7 +151,11 @@ List<Course> demoCourses = [
       book: "h5ttt/bbok.com",
       duration: "3 Weeks",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
-      classes: ["classid1", "class002", "class002"],
+      classes: [ demoCLasses[0],
+        demoCLasses[1],
+        demoCLasses[2],
+        demoCLasses[3],
+        demoCLasses[4],],
       about:
           "In these course you will learn the basics of Data Analysis using PYTHON Programming. The all in one guid that leads to understanding how data and machines works",
       level: "Basics to Advanced",
@@ -165,32 +174,12 @@ List<Course> demoCourses = [
         {
           "id": "oo1",
           "name": "Anderson Jonhn",
-          "image": "assets/images/joel2.jpg"
+          "image": "assets/images/ekowoicho.jpg"
         },
         {
           "id": "002",
           "name": "Joseph Abraham",
-          "image": "assets/images/joellee.jpg"
-        },
-        {
-          "id": "002",
-          "name": "Joseph Abraham",
-          "image": "assets/images/joellee.jpg"
-        },
-        {
-          "id": "002",
-          "name": "Joseph Abraham",
-          "image": "assets/images/joellee.jpg"
-        },
-        {
-          "id": "002",
-          "name": "Joseph Abraham",
-          "image": "assets/images/joellee.jpg"
-        },
-        {
-          "id": "002",
-          "name": "Joseph Abraham",
-          "image": "assets/images/joellee.jpg"
+          "image": "assets/images/profile.jpeg"
         },
         {
           "id": "003",
@@ -222,7 +211,11 @@ List<Course> demoCourses = [
       book: "h5ttt/bbok.com",
       duration: "2 months",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
-      classes: ["classid1", "class002", "class002"],
+      classes: [ demoCLasses[0],
+        demoCLasses[1],
+        demoCLasses[2],
+        demoCLasses[3],
+        demoCLasses[4],],
       about:
           "In these course you will learn the basics of Data Analysis using PYTHON Programming. The all in one guid that leads to understanding how data and machines works",
       level: "Basics to Advanced",
@@ -278,7 +271,11 @@ List<Course> demoCourses = [
       book: "h5ttt/bbok.com",
       duration: "2 months",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
-      classes: ["classid1", "class002", "class002"],
+      classes: [ demoCLasses[0],
+        demoCLasses[1],
+        demoCLasses[2],
+        demoCLasses[3],
+        demoCLasses[4],],
       about:
           "In these course you will learn the basics of Data Analysis using Dart Programming. The all in one guid that leads to understanding how data and machines works",
       level: "Basics to Advanced",
@@ -352,7 +349,11 @@ List<Course> demoCourses = [
       book: "h5ttt/bbok.com",
       duration: "2 months",
       colaborators: ["Google, Nigerian Institute of Data Analysis"],
-      classes: ["classid1", "class002", "class002"],
+      classes: [ demoCLasses[0],
+        demoCLasses[1],
+        demoCLasses[2],
+        demoCLasses[3],
+        demoCLasses[4],],
       about:
           "In these course you will learn the basics of Data Analysis using PYTHON Programming. The all in one guid that leads to understanding how data and machines works",
       level: "Basics to Advanced",

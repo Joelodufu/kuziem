@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter/widgets.dart';
 import 'package:kuziem/model/Course.dart';
 import 'package:kuziem/screens/mobile/teachers_contents/course_details/course_details_screen.dart';
 
 import '../../../components/rounded_button.dart';
 import '../../components/my_course_card.dart';
 
-List<Course> allMyCourse = demoCourses;
+List<Course> allMyCourse =
+    demoCourses.where((course) => course.creator == "Joel Odufu").toList();
 
 class Body extends StatelessWidget {
   const Body({super.key});

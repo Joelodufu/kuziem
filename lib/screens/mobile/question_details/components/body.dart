@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:kuziem/constants.dart';
 
 import '../../../../model/Message.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key, required this.message});
   final Message message;
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  var msgController = TextEditingController();
+  void clearText() {
+    msgController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +36,7 @@ class Body extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              message.author,
+                              widget.message.author,
                               style: const TextStyle(
                                   fontSize: 17,
                                   color: kPrimaryColor,
@@ -38,7 +46,7 @@ class Body extends StatelessWidget {
                               height: 10,
                             ),
                             Text(
-                              message.text,
+                              widget.message.text,
                               style:
                                   TextStyle(fontSize: 17, color: Colors.black),
                             ),
@@ -58,7 +66,7 @@ class Body extends StatelessWidget {
                                       Icons.visibility,
                                       color: Colors.grey,
                                     ),
-                                    Text("${message.replies.length}")
+                                    Text("${widget.message.replies.length}")
                                   ],
                                 ),
                                 Row(
@@ -82,7 +90,7 @@ class Body extends StatelessWidget {
           ),
         ),
         Expanded(
-            flex: 6,
+            flex: 4,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
@@ -92,7 +100,7 @@ class Body extends StatelessWidget {
                   child: Column(
                     children: [
                       ...List.generate(
-                          message.replies.length,
+                          widget.message.replies.length,
                           (index) => Column(
                                 children: [
                                   Container(
@@ -102,7 +110,7 @@ class Body extends StatelessWidget {
                                           child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
-                                          "${message.replies[index]["user"]}",
+                                          "${widget.message.replies[index]["user"]}",
                                           style: TextStyle(
                                               fontSize: 17,
                                               fontWeight: FontWeight.bold,
@@ -118,7 +126,7 @@ class Body extends StatelessWidget {
                                           child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
-                                            "${message.replies[index]["message"]}",
+                                            "${widget.message.replies[index]["message"]}",
                                             style: TextStyle(
                                               fontSize: 17,
                                             )),
@@ -132,7 +140,42 @@ class Body extends StatelessWidget {
                   ),
                 ),
               ),
-            ))
+            )),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+          child: TextField(
+            controller: msgController,
+            decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                contentPadding: EdgeInsets.all(12),
+                suffixIcon: Icon(Icons.arrow_forward_ios),
+                hintText: "reply..."),
+            onSubmitted: (text) {
+              final reply = {"user": "Joel Odufu", "message": "$text"};
+              setState(() => widget.message.replies.add(reply));
+              clearText();
+            },
+          ),
+        )
       ],
     );
   }

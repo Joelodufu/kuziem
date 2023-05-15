@@ -22,7 +22,9 @@ class Body extends StatelessWidget {
             ),
             buildStudentNumbers(size)
           ],
-        )
+        ),
+        Divider(),
+        
       ],
     );
   }
@@ -33,7 +35,6 @@ class Body extends StatelessWidget {
       children: [
         Container(
           width: size.width * 0.4,
-          height: size.width * 0.4,
           color: const Color.fromARGB(255, 227, 232, 233),
           child: Column(
             children: [
@@ -41,11 +42,13 @@ class Body extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: const [
-                    Text(
-                      "Registered Students",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 17,
+                    Expanded(
+                      child: Text(
+                        "Registered Students",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 17,
+                        ),
                       ),
                     )
                   ],
@@ -83,7 +86,7 @@ class Body extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w100,
-                        fontSize: 25,
+                        fontSize: 20,
                       ),
                     )
                   ],
@@ -150,12 +153,14 @@ class Body extends StatelessWidget {
                       size: 15,
                     ),
                   ),
-                  Text(
-                    "₦${course.price}",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 78, 124, 138),
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: Text(
+                      "₦${course.price}",
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 78, 124, 138),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
                   )
                 ],
               ),
@@ -169,7 +174,7 @@ class Body extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w100,
-                        fontSize: 25,
+                        fontSize: 20,
                       ),
                     )
                   ],

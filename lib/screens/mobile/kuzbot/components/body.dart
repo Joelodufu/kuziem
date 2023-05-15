@@ -45,7 +45,7 @@ class _BodyState extends State<Body> {
           groupBy: (message) => DateTime(2022),
           groupHeaderBuilder: (BotMessage message) => const SizedBox(),
           itemBuilder: (context, BotMessage message) => Card(
-            color: message.author == "Joel Lee"
+            color: message.author == "Me"
                 ? Color.fromARGB(255, 222, 229, 230)
                 : Color.fromARGB(255, 255, 255, 255),
             elevation: 4,
@@ -65,7 +65,10 @@ class _BodyState extends State<Body> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(message.text),
+                    Text(
+                      message.text,
+                      style: TextStyle(color: Colors.black),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -111,14 +114,14 @@ class _BodyState extends State<Body> {
             ),
             onSubmitted: (text) {
               final message = BotMessage(
-                author: "Joel Lee",
+                author: "Me",
                 text: text,
                 startTime: DateTime.now(),
               );
               final botreply = BotMessage(
                 author: "KuzBOT",
                 text:
-                    "Please we are working on the AI Integration. We will soon be done with it",
+                    "KuzBOT will answer all your questions, If only you can ask it. \nPlease we are working on the AI Integration. We will soon be done with it",
                 startTime: DateTime.now(),
               );
               setState(() {

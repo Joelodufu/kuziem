@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:kuziem/screens/mobile/cart/cart_screen.dart';
 import 'package:kuziem/screens/mobile/complete_profile/complete_profile_screen.dart';
 import 'package:kuziem/screens/mobile/courses/courses_screen.dart';
 import 'package:kuziem/screens/mobile/forgot_password/forgot_password_screen.dart';
@@ -31,6 +32,7 @@ final Map<String, WidgetBuilder> routes = {
   RegisterSplashScreen.routeName: (context) => const RegisterSplashScreen(),
   RegisterFormScreen.routeName: (context) => const RegisterFormScreen(),
   TeacherHomeScreen.routeName: (context) => const TeacherHomeScreen(),
-  MyCoursesListScreen.routeName:(context) => const MyCoursesListScreen(),
-  KuzBotScreen.routeName:(context)=>const KuzBotScreen(),
+  MyCoursesListScreen.routeName: (context) => const MyCoursesListScreen(),
+  KuzBotScreen.routeName: (context) => const KuzBotScreen(),
+  CartScreen.routeName: (context) => const CartScreen()
 };

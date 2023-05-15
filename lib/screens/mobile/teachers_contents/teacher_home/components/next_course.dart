@@ -96,9 +96,11 @@ class NextCourse extends StatelessWidget {
                         size: 15,
                       ),
                     ),
-                    Text(
-                      "${nextCourse.startTime}",
-                      style: TextStyle(color: Colors.black),
+                    Expanded(
+                      child: Text(
+                        "${nextCourse.startTime}",
+                        style: TextStyle(color: Colors.black),
+                      ),
                     )
                   ],
                 )
