@@ -1,15 +1,15 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
 import 'package:kuziem/screens/mobile/student_home/components/body.dart';
 import '../../../enums.dart';
 import '../../../size_config.dart';
-import '../cart/cart_screen.dart';
 import '../components/costum_nav_bar.dart';
 import '../components/navigator_main.dart';
+import '../components/notifications.dart';
 import '../kuzbot/kuzbot_screen.dart';
 import '../questions/question_screen.dart';
 import 'components/icon_btn_with_count.dart';
+import '../../../model/Notifications.dart';
 
 class StudentHomeScreen extends StatelessWidget {
   static String routeName = "/student_home";
@@ -27,8 +27,9 @@ class StudentHomeScreen extends StatelessWidget {
               press: () {
                 //Send to notification Screen
                 //Navigator.pushNamed(context, CartScreen.routeName);
+                openNotification(context);
               },
-              numberOfItems: 10,
+              numberOfItems: myNotifications.length,
             ),
           )
         ],
@@ -117,5 +118,27 @@ class StudentHomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<dynamic> openNotification(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text("Notifications"),
+              content: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Divider(),
+                    ...List.generate(
+                        myNotifications.length,
+                        (index) => Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: NotificationFill(
+                                  Notification: myNotifications[index]),
+                            ))
+                  ],
+                ),
+              ),
+            ));
   }
 }
