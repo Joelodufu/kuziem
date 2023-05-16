@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/model/Course.dart';
 
+import '../../add_class/add_class_screen.dart';
 import '../../components/rounded_button.dart';
 import '../components/class_card.dart';
 
@@ -83,7 +84,9 @@ class Body extends StatelessWidget {
             ],
           ),
           RoundButton(
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, AddClassScreen.routeName);
+            },
             text: "Add More Class",
           ),
           Divider(),
