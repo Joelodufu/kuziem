@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class ProfilePic extends StatelessWidget {
   const ProfilePic({
-    super.key,
+    super.key, required this.image,
   });
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,8 @@ class ProfilePic extends StatelessWidget {
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
-          const CircleAvatar(
-            backgroundImage: AssetImage("assets/images/joellee.jpg"),
+           CircleAvatar(
+            backgroundImage: AssetImage(image),
           ),
           Positioned(
               right: -12,

@@ -36,13 +36,6 @@ class Body extends StatelessWidget {
           SizedBox(
             height: SizeConfig.screenHeight * 0.04,
           ),
-          SizedBox(
-              width: SizeConfig.screnWidth * 0.6,
-              child: RoundButton(
-                  text: "Back to home",
-                  press: () {
-                    Navigator.pushNamed(context, StudentHomeScreen.routeName);
-                  }))
         ],
       ),
     );

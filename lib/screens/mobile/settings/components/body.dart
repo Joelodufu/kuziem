@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:kuziem/constants.dart';
 
+import '../../profile/profile_screen.dart';
 import '../../teachers_contents/register_splash/register_splash_screen.dart';
 
 class Body extends StatelessWidget {
@@ -29,7 +28,7 @@ class Body extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      buildProfileEditor(),
+                      buildProfileEditor(context),
                       buildNotificationEditor(),
                       buildClassesEditor()
                     ],
@@ -146,12 +145,13 @@ class Body extends StatelessWidget {
     );
   }
 
-  Padding buildProfileEditor() {
+  Padding buildProfileEditor(context) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: InkWell(
         onTap: () {
-          //Leads to Profile Editing Page
+          //Leads to Profile Editing Page'
+          Navigator.pushNamed(context, ProfileScreen.routeName);
         },
         child: Column(
           children: const [

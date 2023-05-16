@@ -1,24 +1,69 @@
-import 'package:flutter/material.dart';
+import 'ClassModel.dart';
+import "Course.dart";
 
 class User {
-  final String name, image, id;
-  final List<String> certificats, courses;
+  final String name,
+      image,
+      email,
+      password,
+      phoneNumber,
+      facebookProfile,
+      instaProfile,
+      twitterProfile,
+      id;
   final bool isATeacher;
+  final List<ClassModel> myClasses;
+  final List<Course> myCourses;
 
   const User({
+    required this.email,
+    required this.password,
+    this.phoneNumber = "",
+    this.instaProfile = "",
+    this.twitterProfile = "",
+    this.facebookProfile = "",
     required this.name,
     this.image = "",
     required this.id,
-    this.certificats = const [],
-    this.courses = const [],
+    this.myClasses = const [],
+    this.myCourses = const [],
     this.isATeacher = false,
   });
 }
 
 List<User> dummyUsers = [
-  const User(name: "Joel Lee", id: "001"),
-  const User(name: "Samuel Ochai", id: "002"),
-  const User(name: "John Johnson", id: "003"),
-  const User(name: "Joseph Allowee", id: "004"),
-  const User(name: "Sunday ALoko", id: "005"),
+  User(
+      email: "joel.odufu@ust.edu.ng",
+      password: "MyStrongPassword",
+      name: "Joel Odufu",
+      id: "001",
+      image: "assets/images/ekowoicho.jpg",
+      myClasses: [
+        demoCLasses[0],
+        demoCLasses[1],
+        demoCLasses[2],
+      ],
+      myCourses: [
+        demoCourses[0],
+        demoCourses[1],
+        demoCourses[2],
+        demoCourses[3],
+      ]),
+  User(
+      email: "samuel.anderson@gmail.com",
+      password: "MyStrongPassword",
+      name: "Samuiel Anderson",
+      id: "001",
+      image: "assets/images/profile.jpeg",
+      myClasses: [
+        demoCLasses[0],
+        demoCLasses[1],
+        demoCLasses[2],
+      ],
+      myCourses: [
+        demoCourses[0],
+        demoCourses[1],
+        demoCourses[2],
+        demoCourses[3],
+      ]),
 ];

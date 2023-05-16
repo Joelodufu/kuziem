@@ -23,9 +23,10 @@ class StudentHomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: IconButtonWithCount(
-              icon: Icons.local_mall_outlined,
+              icon: Icons.notification_add,
               press: () {
-                Navigator.pushNamed(context, CartScreen.routeName);
+                //Send to notification Screen
+                //Navigator.pushNamed(context, CartScreen.routeName);
               },
               numberOfItems: 10,
             ),

@@ -18,7 +18,7 @@ class _LoginSuccessScreenState extends State<LoginSuccessScreen> {
     // TODO: implement initState
     super.initState();
     Timer(
-        Duration(seconds: 2),
+        Duration(milliseconds: 600),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) => StudentHomeScreen())));
   }

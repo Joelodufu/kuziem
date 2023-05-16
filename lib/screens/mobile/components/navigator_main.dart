@@ -4,7 +4,7 @@ import '../../../constants.dart';
 import '../courses/courses_screen.dart';
 import '../profile/profile_screen.dart';
 import '../student_home/student_home_screen.dart';
-import '../teachers_contents/register_splash/register_splash_screen.dart';
+import '../teachers_contents/teacher_home/teacher_home_screen.dart';
 import 'menu_button.dart';
 
 class NavigatorMain extends StatelessWidget {
@@ -71,7 +71,7 @@ Widget buildMenuItems(BuildContext context) => Container(
           MenuBotton(
             text: "Teacher",
             icon: Icons.person_2_outlined,
-            route: RegisterSplashScreen.routeName,
+            route: TeacherHomeScreen.routeName,
           ),
           const Divider(),
           ListTile(
