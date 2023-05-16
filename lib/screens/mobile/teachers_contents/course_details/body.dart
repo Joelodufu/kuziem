@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/model/Course.dart';
 
+import '../../components/rounded_button.dart';
+import '../components/class_card.dart';
+
 class Body extends StatelessWidget {
   const Body({super.key, required this.course});
   final Course course;
@@ -8,24 +11,100 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            buidCourseCost(size),
-            SizedBox(
-              width: 15,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              buidCourseCost(size),
+              SizedBox(
+                width: 15,
+              ),
+              buildStudentNumbers(size)
+            ],
+          ),
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                classCard(
+                  title: 'Introduction',
+                  date: 'May 18, 2023',
+                  startTime: '11:00 AM',
+                  closingTime: '12:30 PM',
+                ),
+                classCard(
+                  title: 'The Begining',
+                  date: 'May 18, 2023',
+                  startTime: '11:00 AM',
+                  closingTime: '12:30 PM',
+                ),
+              ],
             ),
-            buildStudentNumbers(size)
-          ],
-        ),
-        Divider(),
-        
-      ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              classCard(
+                title: 'The First',
+                date: 'May 18, 2023',
+                startTime: '11:00 AM',
+                closingTime: '12:30 PM',
+              ),
+              classCard(
+                title: 'The Second',
+                date: 'May 18, 2023',
+                startTime: '11:00 AM',
+                closingTime: '12:30 PM',
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              classCard(
+                title: 'Summary',
+                date: 'May 18, 2023',
+                startTime: '11:00 AM',
+                closingTime: '12:30 PM',
+              ),
+              classCard(
+                title: 'Conclution',
+                date: 'May 18, 2023',
+                startTime: '11:00 AM',
+                closingTime: '12:30 PM',
+              ),
+            ],
+          ),
+          RoundButton(
+            press: () {},
+            text: "Add More Class",
+          ),
+          Divider(),
+          Column(
+            children: [
+              Text(
+                "Course Images",
+                style: TextStyle(fontSize: 20),
+              ),
+              ...List.generate(
+                course.images.length,
+                (index) => Card(
+                    child: Image.asset(
+                  course.images[index],
+                  width: size.width * 0.8,
+                )),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 
@@ -59,7 +138,7 @@ class Body extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.arrow_forward_ios_rounded,
@@ -69,7 +148,7 @@ class Body extends StatelessWidget {
                   ),
                   Text(
                     "${course.registeredStudents.length}",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Color.fromARGB(255, 75, 76, 77),
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
@@ -102,7 +181,7 @@ class Body extends StatelessWidget {
               height: 35,
               width: 35,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 12, 197, 111),
+                  color: const Color.fromARGB(255, 12, 197, 111),
                   shape: BoxShape.circle,
                   border: Border.all(width: 3, color: Colors.white)),
               child: const Center(
@@ -145,7 +224,7 @@ class Body extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.arrow_forward_ios_rounded,
@@ -156,7 +235,7 @@ class Body extends StatelessWidget {
                   Expanded(
                     child: Text(
                       "₦${course.price}",
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Color.fromARGB(255, 78, 124, 138),
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
