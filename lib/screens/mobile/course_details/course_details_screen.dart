@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
-import '../../../enums.dart';
 import '../../../model/Course.dart';
-import '../components/costum_nav_bar.dart';
 import './components/body.dart';
 
 class CourseDetailsScreen extends StatelessWidget {
@@ -17,9 +15,6 @@ class CourseDetailsScreen extends StatelessWidget {
       ),
       body: Body(
         course: course,
-      ),
-      bottomNavigationBar: const CostumBottomNavbar(
-        selectedMenu: MenuState.home,
       ),
     );
   }

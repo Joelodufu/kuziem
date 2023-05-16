@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
+import 'package:kuziem/screens/mobile/teachers_contents/components/class_card.dart';
 import 'package:kuziem/size_config.dart';
 import 'package:video_player/video_player.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../model/Course.dart';
 import '../../cart/cart_screen.dart';
@@ -42,193 +44,216 @@ class _BodyState extends State<Body> {
 
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        SizedBox(
-          height: size.height * 0.8,
-          child: Stack(children: [
-            //introVideo ? buildVideo(size) :
-            buildCourseImages(size),
-            Container(
-              margin: EdgeInsets.only(top: size.height * 0.3),
-              height: getProportionalScreenHeight(500),
-              width: size.width,
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.only(topLeft: Radius.circular(25))),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: 2,
-                    width: 50,
-                    color: Colors.grey,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      MenuIcon(
-                        isActive: index == 0 ? true : false,
-                        icon: Icons.keyboard_double_arrow_down,
-                        press: () {
-                          setState(() {
-                            index = 0;
-                          });
-                        },
-                      ),
-                      MenuIcon(
-                        isActive: index == 1 ? true : false,
-                        icon: Icons.brightness_2,
-                        press: () {
-                          setState(() {
-                            index = 1;
-                          });
-                        },
-                      ),
-                      MenuIcon(
-                        isActive: index == 2 ? true : false,
-                        icon: Icons.home_repair_service,
-                        press: () {
-                          setState(() {
-                            index = 2;
-                          });
-                        },
-                      ),
-                      MenuIcon(
-                        isActive: index == 3 ? true : false,
-                        icon: Icons.workspace_premium,
-                        press: () {
-                          setState(() {
-                            index = 3;
-                          });
-                        },
-                      ),
-                      MenuIcon(
-                        isActive: index == 4 ? true : false,
-                        icon: Icons.diversity_2,
-                        press: () {
-                          setState(() {
-                            index = 4;
-                          });
-                        },
-                      ),
-                      MenuIcon(
-                        isActive: index == 5 ? true : false,
-                        icon: Icons.today,
-                        press: () {
-                          setState(() {
-                            index = 5;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                      child: Container(
-                    width: size.width,
-                    color: const Color.fromARGB(255, 230, 230, 230),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: size.height * 0.8,
+            child: Stack(children: [
+              //introVideo ? buildVideo(size) :
+              buildCourseImages(size),
+              Container(
+                margin: EdgeInsets.only(top: size.height * 0.3),
+                height: getProportionalScreenHeight(500),
+                width: size.width,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        BorderRadius.only(topLeft: Radius.circular(25))),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 2,
+                      width: 50,
+                      color: Colors.grey,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const SizedBox(
-                          height: 10,
+                        MenuIcon(
+                          isActive: index == 0 ? true : false,
+                          icon: Icons.keyboard_double_arrow_down,
+                          press: () {
+                            setState(() {
+                              index = 0;
+                            });
+                          },
                         ),
-                        buildHeader(),
-                        Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: index == 2
-                              ? buildRequirements()
-                              : index == 5
-                                  ? Column(
-                                      children: [
-                                        ...List.generate(
-                                            widget.course.classes.length,
-                                            (index) => Text(widget
-                                                .course.classes[index].title))
-                                      ],
-                                    )
-                                  : buildTextPropertiesOfCOurses(),
-                        )
+                        MenuIcon(
+                          isActive: index == 1 ? true : false,
+                          icon: Icons.brightness_2,
+                          press: () {
+                            setState(() {
+                              index = 1;
+                            });
+                          },
+                        ),
+                        MenuIcon(
+                          isActive: index == 2 ? true : false,
+                          icon: Icons.home_repair_service,
+                          press: () {
+                            setState(() {
+                              index = 2;
+                            });
+                          },
+                        ),
+                        MenuIcon(
+                          isActive: index == 3 ? true : false,
+                          icon: Icons.workspace_premium,
+                          press: () {
+                            setState(() {
+                              index = 3;
+                            });
+                          },
+                        ),
+                        MenuIcon(
+                          isActive: index == 4 ? true : false,
+                          icon: Icons.diversity_2,
+                          press: () {
+                            setState(() {
+                              index = 4;
+                            });
+                          },
+                        ),
+                        MenuIcon(
+                          isActive: index == 5 ? true : false,
+                          icon: Icons.today,
+                          press: () {
+                            setState(() {
+                              index = 5;
+                            });
+                          },
+                        ),
                       ],
                     ),
-                  )),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: widget.course.classIsOngoing
-                        ? RoundButton(
-                            press: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LiveClassScreen(
-                                            videoUrl:
-                                                'https://www.youtube.com/watch?v=dQl_vMRMjCI&t=173s',
-                                          )));
-                            },
-                            text: 'Enter Class',
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Expanded(
+                        child: Container(
+                      width: size.width,
+                      color: const Color.fromARGB(255, 230, 230, 230),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Spacer(),
+                          Expanded(flex: 2, child: buildHeader()),
+                          Expanded(
+                            flex: 8,
+                            child: SingleChildScrollView(
+                              child: Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: index == 2
+                                    ? buildRequirements()
+                                    : index == 5
+                                        ? Column(
+                                            children: [
+                                              ...List.generate(
+                                                  widget.course.classes.length,
+                                                  (index) => classCard(
+                                                      title: widget.course
+                                                          .classes[index].title,
+                                                      date: DateFormat('yyyy/MM/dd')
+                                                          .format(widget
+                                                              .course
+                                                              .classes[index]
+                                                              .startTime),
+                                                      startTime: DateFormat(
+                                                              'HH:mm:ss')
+                                                          .format(widget
+                                                              .course
+                                                              .classes[index]
+                                                              .startTime),
+                                                      closingTime:
+                                                          DateFormat('HH:mm:ss')
+                                                              .format(widget
+                                                                  .course
+                                                                  .classes[index]
+                                                                  .startTime)))
+                                            ],
+                                          )
+                                        : buildTextPropertiesOfCOurses(),
+                              ),
+                            ),
                           )
-                        : RoundButton(
-                            background: Colors.grey,
-                            press: () {},
-                            text: '${widget.course.startTime}',
-                          ),
-                  )
-                ],
-              ),
-            ),
-            Positioned(
-              top: size.height * 0.27,
-              left: 10,
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(0.4),
-                          blurRadius: 4,
-                          spreadRadius: 1)
-                    ]),
-                child: introVideo
-                    ? InkWell(
-                        onTap: () {
-                          setState(() {
-                            // introVideo = !introVideo;
-                          });
-                        },
-                        child: const Icon(
-                          Icons.theaters,
-                        ),
-                      )
-                    : InkWell(
-                        onTap: () {
-                          setState(() {
-                            // introVideo = !introVideo;
-                          });
-                        },
-                        child: const Icon(
-                          Icons.burst_mode,
-                        ),
+                        ],
                       ),
+                    )),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: widget.course.classIsOngoing
+                          ? RoundButton(
+                              press: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LiveClassScreen(
+                                              videoUrl:
+                                                  'https://www.youtube.com/watch?v=dQl_vMRMjCI&t=173s',
+                                            )));
+                              },
+                              text: 'Enter Class',
+                            )
+                          : RoundButton(
+                              background: Colors.grey,
+                              press: () {},
+                              text: '${widget.course.startTime}',
+                            ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ]),
-        )
-      ],
+              Positioned(
+                top: size.height * 0.27,
+                left: 10,
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(0.4),
+                            blurRadius: 4,
+                            spreadRadius: 1)
+                      ]),
+                  child: introVideo
+                      ? InkWell(
+                          onTap: () {
+                            setState(() {
+                              // introVideo = !introVideo;
+                            });
+                          },
+                          child: const Icon(
+                            Icons.theaters,
+                          ),
+                        )
+                      : InkWell(
+                          onTap: () {
+                            setState(() {
+                              // introVideo = !introVideo;
+                            });
+                          },
+                          child: const Icon(
+                            Icons.burst_mode,
+                          ),
+                        ),
+                ),
+              ),
+            ]),
+          )
+        ],
+      ),
     );
   }
 

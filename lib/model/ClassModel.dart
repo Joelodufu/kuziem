@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class ClassModel {
   final String title, id, link, course;
   final List<String> questions, feedBacks, conversations;

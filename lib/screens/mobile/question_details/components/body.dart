@@ -23,7 +23,7 @@ class _BodyState extends State<Body> {
     return Column(
       children: [
         Expanded(
-          flex: 2,
+          flex: 3,
           child: Column(
             children: [
               Expanded(
@@ -31,59 +31,62 @@ class _BodyState extends State<Body> {
                       color: Colors.white,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.message.author,
-                              style: const TextStyle(
-                                  fontSize: 17,
-                                  color: kPrimaryColor,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              widget.message.text,
-                              style:
-                                  TextStyle(fontSize: 17, color: Colors.black),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Divider(),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.visibility,
-                                      color: Colors.grey,
-                                    ),
-                                    Text("${widget.message.replies.length}")
-                                  ],
-                                ),
-                                Row(
-                                  children: const [
-                                    Icon(
-                                      Icons.watch,
-                                      color: Colors.red,
-                                    ),
-                                    Text(
-                                      "09",
-                                      style: TextStyle(color: kPrimaryColor),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            )
-                          ],
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.message.author,
+                                style: const TextStyle(
+                                    fontSize: 17,
+                                    color: kPrimaryColor,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                widget.message.text,
+                                style: TextStyle(
+                                    fontSize: 17, color: Colors.black),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Divider(),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.visibility,
+                                        color: Colors.grey,
+                                      ),
+                                      Text("${widget.message.replies.length}")
+                                    ],
+                                  ),
+                                  Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.watch,
+                                        color: Colors.red,
+                                      ),
+                                      Text(
+                                        "09",
+                                        style: TextStyle(color: kPrimaryColor),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       )))
             ],
