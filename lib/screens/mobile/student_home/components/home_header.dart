@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../model/Cart.dart';
 import '../../../../size_config.dart';
 import '../../cart/cart_screen.dart';
 import 'icon_btn_with_count.dart';
@@ -20,7 +21,7 @@ class HomeHeader extends StatelessWidget {
           const SearchField(),
           IconButtonWithCount(
             icon: Icons.local_mall_outlined,
-            numberOfItems: 2,
+            numberOfItems: demoCarts.length,
             press: () {
               //go to the cart page
               Navigator.pushNamed(context, CartScreen.routeName);
