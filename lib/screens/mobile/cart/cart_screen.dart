@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 import '../components/rounded_button.dart';
-import '../courses/courses_screen.dart';
+import '../student_home/student_home_screen.dart';
 import './components/body.dart';
 
 class CartScreen extends StatelessWidget {
@@ -60,7 +60,7 @@ class CheckOutCard extends StatelessWidget {
                 const Spacer(),
                 InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, CoursesScreen.routeName);
+                      Navigator.pushNamed(context, StudentHomeScreen.routeName);
                     },
                     child: const Text("Register More Courses")),
                 const SizedBox(

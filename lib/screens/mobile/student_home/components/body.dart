@@ -6,6 +6,7 @@ import '../../../../model/Course.dart';
 import '../../courses/courses_screen.dart';
 import './course_card.dart';
 import 'home_header.dart';
+import 'home_screen_course_card.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -20,69 +21,17 @@ class Body extends StatelessWidget {
             height: getProportionalScreenWidth(20),
           ),
           const HomeHeader(),
-          const DiscountBanner(),
+          //const DiscountBanner(),
 
           //Categories(),
-          SessionHeader(
-              sessionTitle: "Digital Skills Courses",
-              press: () {
-                //take to list of courses from lates
-                Navigator.pushNamed(context, CoursesScreen.routeName);
-              }),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ...List.generate(
-                    demoCourses.length,
-                    (index) => CourseCard(
-                          course: demoCourses[index],
-                          press: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CourseDetailsScreen(
-                                        course: demoCourses[index])));
-                          },
-                        ))
-              ],
-            ),
-          ),
-          SizedBox(
-            height: getProportionalScreenWidth(20),
-          ),
-          SessionHeader(
-              sessionTitle: "Digital Skills Courses",
-              press: () {
-                //take to list of courses from lates
-                Navigator.pushNamed(context, CoursesScreen.routeName);
-              }),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ...List.generate(
-                    demoCourses.length,
-                    (index) => CourseCard(
-                          course: demoCourses[index],
-                          press: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CourseDetailsScreen(
-                                        course: demoCourses[index])));
-                          },
-                        ))
-              ],
-            ),
-          ),
+          ...List.generate(demoCourses.length,
+              (index) => homeScreenCourseCard(course: demoCourses[index]))
         ],
       ),
     ));
   }
 }
+
 
 class SpecialOfferCard extends StatelessWidget {
   const SpecialOfferCard({

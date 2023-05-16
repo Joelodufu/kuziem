@@ -66,7 +66,7 @@ Widget buildMenuItems(BuildContext context) => Container(
           MenuBotton(
             text: "Student",
             icon: Icons.class_outlined,
-            route: CoursesScreen.routeName,
+            route: StudentHomeScreen.routeName,
           ),
           MenuBotton(
             text: "Teacher",

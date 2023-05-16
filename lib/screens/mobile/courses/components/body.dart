@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
-import 'package:kuziem/screens/mobile/course_details/course_details_screen.dart';
+import 'package:kuziem/screens/mobile/registered_course_details/course_details_screen.dart';
 import 'package:kuziem/size_config.dart';
 import '../../../../model/Course.dart';
 import 'course_card_small.dart';
@@ -30,7 +30,7 @@ class Body extends StatelessWidget {
                     GridView.count(
                         mainAxisSpacing: 5,
                         crossAxisSpacing: 5,
-                        childAspectRatio: 0.68,
+                        childAspectRatio: 0.60,
                         physics: const NeverScrollableScrollPhysics(),
                         crossAxisCount: screenWidth < 340
                             ? 1

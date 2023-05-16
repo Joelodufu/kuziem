@@ -14,7 +14,7 @@ class CoursesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Latest Courses"),
+        title: const Text("Registered Courses"),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),

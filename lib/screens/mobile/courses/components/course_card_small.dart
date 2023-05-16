@@ -19,7 +19,6 @@ class CoureCardSmall extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: SizedBox(
-          height: getProportionalScreenWidth(300),
           width: getProportionalScreenWidth(160),
           child: Container(
             margin: EdgeInsets.all(5),
@@ -85,8 +84,8 @@ class CoureCardSmall extends StatelessWidget {
                   decoration:
                       BoxDecoration(color: Color.fromARGB(255, 236, 238, 240)),
                   child: Row(
-                    children: const [
-                      Padding(
+                    children: [
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Icon(
                           Icons.check_circle,
@@ -94,8 +93,10 @@ class CoureCardSmall extends StatelessWidget {
                           size: 14,
                         ),
                       ),
-                      Text("Admition Opened",
-                          style: TextStyle(color: kPrimaryColor)),
+                      Expanded(
+                        child: Text("${course.startTime}",
+                            style: const TextStyle(color: kPrimaryColor)),
+                      ),
                     ],
                   ),
                 ),

@@ -1,7 +1,7 @@
 import "ClassModel.dart";
 
 class Course {
-  final bool isDone;
+  final bool isDone, classIsOngoing;
 
   final double price;
   final DateTime startTime;
@@ -22,6 +22,7 @@ class Course {
 
   Course(
       {required this.startTime,
+      required this.classIsOngoing,
       required this.title,
       required this.introVideo,
       required this.id,
@@ -44,6 +45,7 @@ class Course {
 
 List<Course> demoCourses = [
   Course(
+      classIsOngoing: true,
       title: "Introduction to data analysis",
       id: "0001",
       startTime: DateTime.parse("2023-04-05"),
@@ -104,6 +106,7 @@ List<Course> demoCourses = [
       affiliation: "Google, Nigerian Institute of Data Analysis",
       requirements: ["Laptop", "Internet Service", "Webcam", "Notebook"]),
   Course(
+      classIsOngoing: false,
       title: "Electronic Technology",
       startTime: DateTime.parse("2023-04-05"),
       id: "0002",
@@ -167,6 +170,7 @@ List<Course> demoCourses = [
   Course(
       title: "Digital Painting",
       startTime: DateTime.parse("2023-04-05"),
+      classIsOngoing: true,
       id: "0003",
       isDone: true,
       category: "digital skills",
@@ -229,6 +233,7 @@ List<Course> demoCourses = [
   Course(
       title: "Android App Development",
       startTime: DateTime.parse("2023-04-05"),
+      classIsOngoing: false,
       id: "0004",
       category: "digital skills",
       introVideo: "https://www.youtube.com/watch?v=AhUL5tHF3uc",
@@ -291,6 +296,7 @@ List<Course> demoCourses = [
   Course(
       title: "Introduction to data analysis",
       startTime: DateTime.parse("2023-04-05"),
+      classIsOngoing: true,
       id: "0001",
       category: "digital skills",
       introVideo: "https://www.youtube.com/watch?v=SfE3aO3LWi0",

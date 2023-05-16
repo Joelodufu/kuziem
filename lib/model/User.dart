@@ -39,9 +39,7 @@ List<User> dummyUsers = [
       id: "001",
       image: "assets/images/ekowoicho.jpg",
       myClasses: [
-        demoCLasses[0],
-        demoCLasses[1],
-        demoCLasses[2],
+        ...demoCourses[0].classes
       ],
       myCourses: [
         demoCourses[0],
