@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kuziem/model/Course.dart';
 import 'package:kuziem/screens/mobile/teachers_contents/course_details/course_details_screen.dart';
 
+import '../../add_course/add_course_screen.dart';
 import '../../../components/rounded_button.dart';
 import '../../components/my_course_card.dart';
 
@@ -52,7 +53,9 @@ class Body extends StatelessWidget {
                     height: 50,
                     child: RoundButton(
                       text: "Create A Course",
-                      press: () {},
+                      press: () {
+                        Navigator.pushNamed(context, AddCourseScreen.routeName);
+                      },
                     ),
                   ),
                 ],

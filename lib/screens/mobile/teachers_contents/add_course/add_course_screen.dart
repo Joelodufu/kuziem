@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import '../../../../model/Notifications.dart';
-import '../../components/notifications.dart';
-import './components/body.dart';
+
 
 import '../../../../enums.dart';
+import '../../../../model/Notifications.dart';
 import '../../components/costum_nav_bar.dart';
 import '../../components/icon_btn_with_count.dart';
-import '../../components/navigator_main.dart';
+import '../../components/notifications.dart';
+import 'components/body.dart';
 
-class MyCoursesListScreen extends StatelessWidget {
-  const MyCoursesListScreen({super.key});
-  static String routeName = "/my_courses_list";
+class AddCourseScreen extends StatelessWidget {
+  const AddCourseScreen({super.key});
+  static String routeName = "/add_course";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("My Courses"),
+        title: const Text("Create a Course"),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),

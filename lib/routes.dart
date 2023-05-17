@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:kuziem/screens/mobile/add_class/add_class_screen.dart';
+import 'package:kuziem/screens/mobile/teachers_contents/add_course/add_course_screen.dart';
 import 'package:kuziem/screens/mobile/cart/cart_screen.dart';
 import 'package:kuziem/screens/mobile/complete_profile/complete_profile_screen.dart';
 import 'package:kuziem/screens/mobile/courses/courses_screen.dart';
@@ -36,5 +37,6 @@ final Map<String, WidgetBuilder> routes = {
   MyCoursesListScreen.routeName: (context) => const MyCoursesListScreen(),
   KuzBotScreen.routeName: (context) => const KuzBotScreen(),
   CartScreen.routeName: (context) => const CartScreen(),
-  AddClassScreen.routeName: (context) => const AddClassScreen()
+  AddClassScreen.routeName: (context) => const AddClassScreen(),
+  AddCourseScreen.routeName: (context) => const AddCourseScreen()
 };

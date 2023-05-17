@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:intl/intl.dart';
 import 'package:kuziem/constants.dart';
 import 'package:kuziem/screens/mobile/components/rounded_button.dart';
 
@@ -21,6 +22,7 @@ class _BodyState extends State<Body> {
   late TextEditingController _linkController;
   late DateTime _startTime = DateTime.now();
   late DateTime _endTime = DateTime.now();
+  late DateTime _startDate = DateTime.now();
   List<String> _questions = [];
   List<String> _feedbacks = [];
   List<String> _conversations = [];
@@ -68,6 +70,9 @@ class _BodyState extends State<Body> {
     }
   }
 
+  bool dateSelected = false;
+  bool timeSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -104,17 +109,21 @@ class _BodyState extends State<Body> {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RoundButton(
-                  background: Color.fromARGB(255, 239, 242, 245),
-                  color: kPrimaryColor,
-                  text: 'Select Date',
+                  background: dateSelected
+                      ? Colors.green
+                      : Color.fromARGB(255, 238, 241, 241),
+                  color: dateSelected ? Colors.white : kPrimaryColor,
+                  text: dateSelected
+                      ? "${DateFormat("yy/mm/dd").format(_startDate)}"
+                      : 'Select Date',
                   press: () async {
                     DateTime? selectedDateTime = await showDatePicker(
                       context: context,
@@ -124,7 +133,8 @@ class _BodyState extends State<Body> {
                     );
                     if (selectedDateTime != null) {
                       setState(() {
-                        _startTime = selectedDateTime;
+                        _startDate = selectedDateTime;
+                        dateSelected = true;
                       });
                     }
                   },
@@ -136,9 +146,13 @@ class _BodyState extends State<Body> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RoundButton(
-                  background: Color.fromARGB(255, 239, 242, 245),
-                  color: kPrimaryColor,
-                  text: "Select Time",
+                  background: timeSelected
+                      ? Colors.green
+                      : Color.fromARGB(255, 238, 241, 241),
+                  color: timeSelected ? Colors.white : kPrimaryColor,
+                  text: timeSelected
+                      ? "${DateFormat("HH:MM").format(_startTime)}"
+                      : 'Select Time',
                   press: () async {
                     var selectedDateTime = await showTimePicker(
                       initialTime: TimeOfDay(hour: 00, minute: 00),
@@ -147,6 +161,7 @@ class _BodyState extends State<Body> {
                     if (selectedDateTime != null) {
                       setState(() {
                         //_endTime = selectedDateTime;
+                        timeSelected = true;
                       });
                     }
                   },
