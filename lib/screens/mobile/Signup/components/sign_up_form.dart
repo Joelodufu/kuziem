@@ -1,8 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:kuziem/controllers/auth_controller.dart';
 import 'package:kuziem/screens/mobile/complete_profile/complete_profile_screen.dart';
 
 import '../../../../constants.dart';
 import '../../../../size_config.dart';
+import '../../../../utils/show_snackbar.dart';
 import '../../components/rounded_button.dart';
 import '../../components/text_field_container.dart';
 
@@ -15,11 +18,50 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  String email = "";
-  String password = "";
+  final AuthController _authController = AuthController();
+
+  late String email;
+  late String fullName;
+  late String password;
   bool visibility = true;
-  String confirmPassword = "";
+  late String confirmPassword;
   final List<String> errors = [];
+  bool isLoading = false;
+  late bool success;
+  String message = "";
+
+  _signUpUser() async {
+    setState(() {
+      isLoading = true;
+    });
+    String res = await _authController
+        .signUpUser(email, fullName, password)
+        .whenComplete(() {
+      setState(() {
+        _formKey.currentState!.reset();
+      });
+    });
+    if (res != "Account Created Succesfully for. Welcome to Kuziem") {
+      print(res);
+      message = res;
+      setState(() {
+        success = true;
+        isLoading = false;
+      });
+    } else if (res !=
+        "The email address is already in use by another account.") {
+      setState(() {
+        success = false;
+      });
+    } else {
+      message = res;
+      setState(() {
+        success = false;
+        isLoading = false;
+      });
+      print("good");
+    }
+  }
 
   void addError({required String error}) {
     if (!errors.contains(error)) {
@@ -43,6 +85,10 @@ class _SignUpFormState extends State<SignUpForm> {
       key: _formKey,
       child: Column(
         children: [
+          buildFullNameField(),
+          SizedBox(
+            height: SizeConfig.screenHeight * 0.04,
+          ),
           buildEmailFormField(),
           SizedBox(
             height: SizeConfig.screenHeight * 0.04,
@@ -53,12 +99,19 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           buildConfirmPasswordFormField(),
           createPadding(),
+          isLoading ? CircularProgressIndicator() : Container(),
           RoundButton(
-              text: "Continue",
-              press: () {
+              text: "Register",
+              press: () async {
                 if (_formKey.currentState!.validate()) {
-                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                  await _signUpUser();
+
+                  // ignore: use_build_context_synchronously
+                  return showSnack(context, message, success);
+                  // Navigator.pushNamed(context, CompleteProfileScreen.routeName);
                   //Complete the form action
+                } else {
+                  showSnack(context, "Fields Empty", success);
                 }
               }),
           createPadding(),
@@ -92,7 +145,6 @@ class _SignUpFormState extends State<SignUpForm> {
             });
             return null;
           }
-          return null;
         },
         onChanged: (value) {
           if (value.isEmpty && errors.contains(kPassNullError)) {
@@ -100,7 +152,9 @@ class _SignUpFormState extends State<SignUpForm> {
           } else if (value == password && errors.contains(kMatchPassError)) {
             removeError(error: kMatchPassError);
           }
-          return null;
+          setState(() {
+            confirmPassword = value;
+          });
         },
         obscureText: visibility,
         decoration: InputDecoration(
@@ -153,7 +207,9 @@ class _SignUpFormState extends State<SignUpForm> {
           } else if (value.length >= 8 && errors.contains(kShortPassError)) {
             removeError(error: kShortPassError);
           }
-          password = value;
+          setState(() {
+            password = value;
+          });
           return null;
         },
         obscureText: visibility,
@@ -205,7 +261,9 @@ class _SignUpFormState extends State<SignUpForm> {
             errors.contains(kInvalidEmailError)) {
           removeError(error: kInvalidEmailError);
         }
-        return null;
+        setState(() {
+          email = value;
+        });
       },
       decoration: InputDecoration(
         border: InputBorder.none,
@@ -215,6 +273,45 @@ class _SignUpFormState extends State<SignUpForm> {
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
             icon: const Icon(Icons.email),
+            onPressed: () {},
+          ),
+        ),
+      ),
+    ));
+  }
+
+  TextFieldContainer buildFullNameField() {
+    return TextFieldContainer(
+        child: TextFormField(
+      onSaved: (newValue) => fullName = newValue!,
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kEmailNullError)) {
+          setState(() {
+            errors.add(fullNameNullError);
+          });
+          return fullNameNullError;
+        } else if (value.isEmpty && errors.contains(fullNameNullError)) {
+          return fullNameNullError;
+        }
+        return null;
+      },
+      keyboardType: TextInputType.emailAddress,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(fullNameNullError)) {
+          removeError(error: fullNameNullError);
+        }
+        setState(() {
+          fullName = value;
+        });
+      },
+      decoration: InputDecoration(
+        border: InputBorder.none,
+        hintText: "Enter your Full Name",
+        labelText: "Full Name",
+        suffixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: IconButton(
+            icon: const Icon(Icons.person),
             onPressed: () {},
           ),
         ),

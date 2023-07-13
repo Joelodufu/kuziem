@@ -22,7 +22,7 @@
           }
         },
         {
-          "client_id": "292729575148-vt3prft98pmo6j3j260jb80ftqnhant2.apps.googleusercontent.com",
+          "client_id": "292729575148-74kgd9kl7uh49p4qu76lemgbacavmtv0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -35,7 +35,36 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "292729575148-vt3prft98pmo6j3j260jb80ftqnhant2.apps.googleusercontent.com",
+              "client_id": "292729575148-74kgd9kl7uh49p4qu76lemgbacavmtv0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292729575148:android:fa76ebc03977233acbf7c9",
+        "android_client_info": {
+          "package_name": "com.example.kuziem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292729575148-74kgd9kl7uh49p4qu76lemgbacavmtv0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZpLpDlw1_M-rDDs6G7dVLCY0Qj8HUMZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292729575148-74kgd9kl7uh49p4qu76lemgbacavmtv0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

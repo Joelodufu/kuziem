@@ -20,11 +20,11 @@ class _LoginSuccessScreenState extends State<LoginSuccessScreen> {
     Timer(
         Duration(milliseconds: 600),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => StudentHomeScreen())));
+            builder: (BuildContext context) => const StudentHomeScreen())));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Body());
+    return const Scaffold(body: Body());
   }
 }

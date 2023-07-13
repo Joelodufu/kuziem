@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kuziem/controllers/auth_controller.dart';
 import 'package:kuziem/screens/mobile/Signup/components/or_divider.dart';
 import 'package:kuziem/screens/mobile/forgot_password/forgot_password_screen.dart';
 import 'package:kuziem/screens/mobile/login/components/social_card.dart';
 import 'package:kuziem/screens/mobile/login_success/login_success_screen.dart';
+import 'package:kuziem/utils/show_snackbar.dart';
 import '../../../../constants.dart';
 import '../../../../size_config.dart';
 import '../../components/rounded_button.dart';
@@ -16,12 +18,39 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
+  final AuthController _controller = AuthController();
   final _formKey = GlobalKey<FormState>();
-  String email = "";
-  String password = "";
+  late String email;
+  late String password;
   bool remember = false;
   bool visibility = true;
   final List<String> errors = [];
+  late String message;
+  bool isLoading = false;
+  loginUser() async {
+    setState(() {
+      isLoading = true;
+    });
+    if (_formKey.currentState!.validate()) {
+      String res = await _controller.loginUsers(email, password);
+      setState(() {
+        message = res;
+        isLoading = false;
+      });
+      if (res == "success") {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (BuildContext context) {
+          return LoginSuccessScreen();
+        }));
+      }
+    } else {
+      setState(() {
+        message = "Please Fields Must Not Be Empty";
+      });
+      ;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -66,13 +95,16 @@ class _SignFormState extends State<SignForm> {
             SizedBox(
               height: getProportionalScreenWidth(20),
             ),
+            isLoading ? CircularProgressIndicator() : Container(),
             RoundButton(
                 text: "Login",
                 color: Colors.white,
                 background: kPrimaryColor,
-                press: () {
+                press: () async {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                    await loginUser();
+                    return showSnack(context, message, true);
+                    // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
                   }
                 }),
             const OrDevider(),
@@ -104,6 +136,9 @@ class _SignFormState extends State<SignForm> {
             }
           },
           onChanged: (value) {
+            setState(() {
+              password = value;
+            });
             if (value.isNotEmpty && errors.contains(kPassNullError)) {
               setState(() {
                 errors.remove(kPassNullError);
@@ -157,6 +192,9 @@ class _SignFormState extends State<SignForm> {
       },
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) {
+        setState(() {
+          email = value;
+        });
         if (value.isNotEmpty && errors.contains(kEmailNullError)) {
           setState(() {
             errors.remove(kEmailNullError);

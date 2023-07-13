@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/constants.dart';
 import 'package:kuziem/screens/mobile/teachers_contents/register_form/register_form_screen.dart';
-
 import '../../../components/rounded_button.dart';
 
 class Body extends StatelessWidget {
@@ -78,6 +77,7 @@ class Body extends StatelessWidget {
               ),
             ),
           ],
+          
         ),
         const SizedBox(
           height: 50,

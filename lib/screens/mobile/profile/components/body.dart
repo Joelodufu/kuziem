@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kuziem/screens/mobile/profile/components/profile_pic.dart';
-
 import '../../../../constants.dart';
 import '../../../../model/User.dart';
 import '../../components/rounded_button.dart';
@@ -16,7 +15,7 @@ class Body extends StatelessWidget {
         ProfileHeader(
           user: dummyUsers[1],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         RoundButton(
@@ -53,19 +52,17 @@ class ProfileHeader extends StatelessWidget {
                     top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
                 child: Column(
                   children: [
-                    ProfilePic(
-                      image: user.image,
-                    ),
-                    SizedBox(
+                    ProfilePic(),
+                    const SizedBox(
                       height: 12,
                     ),
                     Text(
                       user.name,
-                      style: TextStyle(fontSize: 28, color: Colors.white),
+                      style: const TextStyle(fontSize: 28, color: Colors.white),
                     ),
                     Text(
                       user.email,
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: const TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ],
                 ),

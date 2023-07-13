@@ -16,7 +16,7 @@ class HeadDivider extends StatelessWidget {
         children: [
           buildDivider(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
               headerText,
               style:
