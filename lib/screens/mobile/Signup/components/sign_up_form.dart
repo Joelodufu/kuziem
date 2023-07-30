@@ -1,13 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kuziem/controllers/auth_controller.dart';
-import 'package:kuziem/screens/mobile/complete_profile/complete_profile_screen.dart';
+import 'package:kuziem/services/auth_service.dart';
 
 import '../../../../constants.dart';
+import '../../../../helperFunction.dart';
 import '../../../../size_config.dart';
 import '../../../../utils/show_snackbar.dart';
+import '../../../../widgets.dart';
 import '../../components/rounded_button.dart';
 import '../../components/text_field_container.dart';
+import '../../login_success/login_success_screen.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -19,6 +22,7 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   final AuthController _authController = AuthController();
+  final AuthService authService = AuthService();
 
   late String email;
   late String fullName;
@@ -34,33 +38,25 @@ class _SignUpFormState extends State<SignUpForm> {
     setState(() {
       isLoading = true;
     });
-    String res = await _authController
-        .signUpUser(email, fullName, password)
-        .whenComplete(() {
-      setState(() {
-        _formKey.currentState!.reset();
-      });
+
+    await authService
+        .registerUserWithEmailAndPassword(fullName, email, password)
+        .then((value) async {
+      if (value == true) {
+        //Saving the shared preference state
+        await HelperFunctions.saveUserLoggedInStatuse(true);
+        await HelperFunctions.saveUserEmailSF(email);
+        await HelperFunctions.saveUserNameSF(fullName);
+
+        // ignore: use_build_context_synchronously
+        nextScreenReplace(context, const LoginSuccessScreen());
+      } else {
+        showSnackBaro(context, Colors.red, value);
+        setState(() {
+          isLoading = false;
+        });
+      }
     });
-    if (res != "Account Created Succesfully for. Welcome to Kuziem") {
-      print(res);
-      message = res;
-      setState(() {
-        success = true;
-        isLoading = false;
-      });
-    } else if (res !=
-        "The email address is already in use by another account.") {
-      setState(() {
-        success = false;
-      });
-    } else {
-      message = res;
-      setState(() {
-        success = false;
-        isLoading = false;
-      });
-      print("good");
-    }
   }
 
   void addError({required String error}) {
@@ -107,7 +103,6 @@ class _SignUpFormState extends State<SignUpForm> {
                   await _signUpUser();
 
                   // ignore: use_build_context_synchronously
-                  return showSnack(context, message, success);
                   // Navigator.pushNamed(context, CompleteProfileScreen.routeName);
                   //Complete the form action
                 } else {

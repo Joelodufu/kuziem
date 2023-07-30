@@ -1,12 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kuziem/controllers/auth_controller.dart';
 import 'package:kuziem/screens/mobile/Signup/components/or_divider.dart';
 import 'package:kuziem/screens/mobile/forgot_password/forgot_password_screen.dart';
 import 'package:kuziem/screens/mobile/login/components/social_card.dart';
 import 'package:kuziem/screens/mobile/login_success/login_success_screen.dart';
+import 'package:kuziem/services/database_service.dart';
 import 'package:kuziem/utils/show_snackbar.dart';
 import '../../../../constants.dart';
+import '../../../../helperFunction.dart';
+import '../../../../services/auth_service.dart';
 import '../../../../size_config.dart';
+import '../../../../widgets.dart';
 import '../../components/rounded_button.dart';
 import '../../components/text_field_container.dart';
 
@@ -18,7 +23,7 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
-  final AuthController _controller = AuthController();
+  final AuthService authService = AuthService();
   final _formKey = GlobalKey<FormState>();
   late String email;
   late String password;
@@ -27,89 +32,97 @@ class _SignFormState extends State<SignForm> {
   final List<String> errors = [];
   late String message;
   bool isLoading = false;
+
   loginUser() async {
     setState(() {
       isLoading = true;
     });
-    if (_formKey.currentState!.validate()) {
-      String res = await _controller.loginUsers(email, password);
-      setState(() {
-        message = res;
-        isLoading = false;
-      });
-      if (res == "success") {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) {
-          return LoginSuccessScreen();
-        }));
+
+    await authService
+
+        //login and get the user data
+        .logInWithUserNameAndPassword(email, password)
+        .then((value) async {
+      if (value == true) {
+        QuerySnapshot snapshot =
+            await DatabaseSerice(uid: FirebaseAuth.instance.currentUser!.uid)
+                .getUserData(email);
+
+        //Saving the shared preference state
+        await HelperFunctions.saveUserLoggedInStatuse(true);
+        await HelperFunctions.saveUserEmailSF(email);
+        await HelperFunctions.saveUserNameSF(snapshot.docs[0]["fullName"]);
+        // ignore: use_build_context_synchronously
+        nextScreenReplace(context, const LoginSuccessScreen());
+      } else {
+        showSnackBaro(context, Colors.red, value);
+        setState(() {
+          isLoading = false;
+        });
       }
-    } else {
-      setState(() {
-        message = "Please Fields Must Not Be Empty";
-      });
-      ;
-    }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Form(
         key: _formKey,
-        child: Column(
-          children: [
-            buildEmailFormField(),
-            SizedBox(height: SizeConfig.screenHeight * 0.03),
-            buildPasswordForm(),
-            SizedBox(
-              height: getProportionalScreenWidth(20),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Checkbox(
-                    value: remember,
-                    onChanged: (value) {
-                      setState(() {
-                        remember = value!;
-                      });
-                    }),
-                const Text("Remember Me"),
-                SizedBox(
-                  width: getProportionalScreenWidth(40),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const ForgotPassword()));
-                  },
-                  child: const Text(
-                    "Forgot Password",
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                    ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              buildEmailFormField(),
+              SizedBox(height: SizeConfig.screenHeight * 0.03),
+              buildPasswordForm(),
+              SizedBox(
+                height: getProportionalScreenWidth(20),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Checkbox(
+                      value: remember,
+                      onChanged: (value) {
+                        setState(() {
+                          remember = value!;
+                        });
+                      }),
+                  const Text("Remember Me"),
+                  SizedBox(
+                    width: getProportionalScreenWidth(40),
                   ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: getProportionalScreenWidth(20),
-            ),
-            isLoading ? CircularProgressIndicator() : Container(),
-            RoundButton(
-                text: "Login",
-                color: Colors.white,
-                background: kPrimaryColor,
-                press: () async {
-                  if (_formKey.currentState!.validate()) {
-                    await loginUser();
-                    return showSnack(context, message, true);
-                    // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-                  }
-                }),
-            const OrDevider(),
-            const SocialCard()
-          ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const ForgotPassword()));
+                    },
+                    child: const Text(
+                      "Forgot Password",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: getProportionalScreenWidth(20),
+              ),
+              isLoading ? CircularProgressIndicator() : Container(),
+              RoundButton(
+                  text: "Login",
+                  color: Colors.white,
+                  background: kPrimaryColor,
+                  press: () async {
+                    if (_formKey.currentState!.validate()) {
+                      await loginUser();
+                      // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                    }
+                  }),
+              const OrDevider(),
+              const SocialCard()
+            ],
+          ),
         ));
   }
 

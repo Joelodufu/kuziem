@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:kuziem/helperFunction.dart';
 import 'package:kuziem/screens/mobile/login/login.dart';
 import 'package:kuziem/size_config.dart';
 
+import '../student_home/student_home_screen.dart';
 import 'components/splashscreen.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -19,14 +21,29 @@ class SplashScreenPage extends StatefulWidget {
 }
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
+  bool _isSignedIn = false;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    getUserLoggedInStatus();
+
     Timer(
         Duration(seconds: 5),
-        () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => Login())));
+        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (BuildContext context) =>
+                _isSignedIn ? StudentHomeScreen() : Login())));
+  }
+
+  getUserLoggedInStatus() async {
+    await HelperFunctions.getUserLoggedInStatus().then((value) {
+      if (value != null) {
+        setState(() {
+          _isSignedIn = value;
+        });
+      }
+    });
   }
 
   @override
