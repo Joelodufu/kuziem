@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:kuziem/helperFunction.dart';
 import 'package:kuziem/screens/mobile/settings/settings_screen.dart';
@@ -19,7 +17,6 @@ class NavigatorMain extends StatefulWidget {
 
 class _NavigatorMainState extends State<NavigatorMain> {
   AuthService authService = AuthService();
-  Uint8List? _image;
   String email = "";
   String userName = "";
 
@@ -49,15 +46,14 @@ class _NavigatorMainState extends State<NavigatorMain> {
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                buildHeader(context, email, userName, _image),
+                buildHeader(context, email, userName),
                 buildMenuItems(context)
               ]),
         ),
       );
 }
 
-Widget buildHeader(BuildContext context, String email, String userName,
-        Uint8List? _image) =>
+Widget buildHeader(BuildContext context, String email, String userName) =>
     Container(
       color: kPrimaryColor,
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
@@ -71,33 +67,9 @@ Widget buildHeader(BuildContext context, String email, String userName,
               top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
           child: Column(
             children: [
-              Stack(
-                fit: StackFit.expand,
-                clipBehavior: Clip.none,
-                children: [
-                  _image != null
-                      ? CircleAvatar(
-                          backgroundImage: MemoryImage(_image!),
-                        )
-                      : CircleAvatar(
-                          backgroundColor: Colors.white,
-                        ),
-                  Positioned(
-                      right: -12,
-                      bottom: 0,
-                      child: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          padding: const EdgeInsets.all(0),
-                          height: 46,
-                          width: 46,
-                          decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 236, 236, 236),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Icon(Icons.edit),
-                        ),
-                      ))
-                ],
+              const CircleAvatar(
+                radius: 52,
+                backgroundColor: Colors.grey,
               ),
               const SizedBox(
                 height: 12,

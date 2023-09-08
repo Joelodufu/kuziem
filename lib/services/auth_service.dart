@@ -53,4 +53,6 @@ class AuthService {
       await firebaseAuth.signOut();
     } catch (e) {}
   }
+  
 }
+

@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:kuziem/constants.dart';
 import 'package:kuziem/controllers/auth_controller.dart';
 
+import '../../../../utils/file_handling_helper.dart';
+
 class ProfilePic extends StatefulWidget {
   @override
   State<ProfilePic> createState() => _ProfilePicState();
@@ -30,7 +32,7 @@ class _ProfilePicState extends State<ProfilePic> {
   }
 
   selectGalleryImage() async {
-    Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);
+    Uint8List? im = await FileHandlingHelper.pickAndSaveFile(context);
     setState(() {
       _image = im;
     });

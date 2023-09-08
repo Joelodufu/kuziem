@@ -22,8 +22,8 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     // TODO: implement initState
-    super.initState();
-    gettingUserData();
+    super.initState(); 
+    gettingUserData(); 
   }
 
   gettingUserData() async {
@@ -51,7 +51,7 @@ class _BodyState extends State<Body> {
         RoundButton(
           text: "Sign Out",
           press: () async {
-            await authService.signOut();
+            await authService.signOut();   
             nextScreenReplace(context, Login());
           },
         )
@@ -70,39 +70,34 @@ class ProfileHeader extends StatelessWidget {
   final String userName;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Container(
-            color: kPrimaryColor,
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-            child: InkWell(
-              onTap: () {},
-              child: Container(
-                color: kPrimaryColor,
-                padding: EdgeInsets.only(
-                    top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
-                child: Column(
-                  children: [
-                    ProfilePic(),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Text(
-                      userName,
-                      style: const TextStyle(fontSize: 28, color: Colors.white),
-                    ),
-                    Text(
-                      email,
-                      style: const TextStyle(fontSize: 16, color: Colors.white),
-                    ),
-                  ],
-                ),
+    return Container(
+      color: kPrimaryColor,
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+      child: InkWell(
+        onTap: () {},
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          color: kPrimaryColor,
+          padding: EdgeInsets.only(
+              top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
+          child: Column(
+            children: [
+              ProfilePic(),
+              const SizedBox(
+                height: 12,
               ),
-            ),
+              Text(
+                userName,
+                style: const TextStyle(fontSize: 28, color: Colors.white),
+              ),
+              Text(
+                email,
+                style: const TextStyle(fontSize: 16, color: Colors.white),
+              ),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 }
